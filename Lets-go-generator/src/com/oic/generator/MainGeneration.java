@@ -8,7 +8,7 @@ import java.io.File;
 
 public class MainGeneration {
     private static Schema schema;
-    private static final String PACKAGE_NAME = "com.oic.bookreminder.models.greendao";
+    private static final String PACKAGE_NAME = "com.oic.bookreminder.models.tables";
     private static final int VERSION_CODE = 1;
     private static final String DIR_OUTPUT = "../Lets-go-generator-out-ver"+VERSION_CODE+"/src";
 
@@ -34,7 +34,7 @@ public class MainGeneration {
         // Table: User
         Entity user = schema.addEntity("User");
 
-        user.addLongProperty("_id").primaryKey().autoincrement();
+        user.addLongProperty("id").primaryKey().autoincrement();
         user.addStringProperty("userId");
         user.addStringProperty("accessToken");
         user.addStringProperty("gcmToken");
@@ -53,7 +53,7 @@ public class MainGeneration {
         // Table: Notifications
         Entity notification = schema.addEntity("Notification");
 
-        notification.addLongProperty("_id").primaryKey();
+        notification.addLongProperty("id").primaryKey();
         notification.addLongProperty("notificationId");
         notification.addStringProperty("type");
         notification.addStringProperty("content");
