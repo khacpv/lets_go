@@ -1,4 +1,4 @@
-package is.cinnamon.seconds.generator;
+package com.oic.generator;
 
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
@@ -6,7 +6,7 @@ import de.greenrobot.daogenerator.Schema;
 
 import java.io.File;
 
-public class NewMain {
+public class MainGeneration {
     private static Schema schema;
     private static final String PACKAGE_NAME = "com.oic.bookreminder.models.greendao";
     private static final int VERSION_CODE = 1;
