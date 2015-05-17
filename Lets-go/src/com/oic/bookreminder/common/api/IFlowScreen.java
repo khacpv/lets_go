@@ -12,4 +12,14 @@ public interface IFlowScreen {
     void onSplash();
     void onSplashToReadingBook(Fragment oldFragment);
     void onSplashToAddbook(Fragment oldFragment);
+
+    /*============= ADD NEW BOOK ===========================*/
+
+    /*============= LIBRARY ===========================*/
+
+    /*============= NOTIFICATION ===========================*/
+
+    /*============= MINI GAME ===========================*/
+
+    /*============= SETTING ===========================*/
 }

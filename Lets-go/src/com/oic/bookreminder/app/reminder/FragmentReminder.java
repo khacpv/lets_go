@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
 
 /**
@@ -12,7 +13,7 @@ import com.oic.bookreminder.app.AppFragment;
 public class FragmentReminder extends AppFragment{
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return null;
+        return inflater.inflate(R.layout.fragment_reminder,container,false);
     }
 
     @Override

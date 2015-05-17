@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         FragmentReadbook fragment = (FragmentReadbook)getFragmentMng().findFragmentByTag(tag);
 
         FragmentTransaction transaction = getFragmentTnx();
-        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        transaction.setCustomAnimations(R.anim.fragment_in, R.anim.fragment_out);
 
         if(null == fragment){
             fragment = new FragmentReadbook();
@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         FragmentAddbook fragment = (FragmentAddbook)getFragmentMng().findFragmentByTag(tag);
 
         FragmentTransaction transaction = getFragmentTnx();
-        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        transaction.setCustomAnimations(R.anim.fragment_in, R.anim.fragment_out);
 
         if(null == fragment){
             fragment = new FragmentAddbook();
@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
             transaction.show(fragment);
         }
         transaction.remove(oldFragment);
-        transaction.addToBackStack(tag);
+//        transaction.addToBackStack(tag);
         transaction.commitAllowingStateLoss();
     }
 }
