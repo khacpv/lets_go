@@ -4,3 +4,7 @@ Lets-go-generator-out-ver*
 .idea
 out
 gen
+*.properties
+build.xml
+bin
+Lets-go/.idea/workspace.xml
