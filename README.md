@@ -19,6 +19,7 @@ Quy tắc chung:
 
 Các files:
   + LetsGo.iml: nếu sử dụng Intellij (thay vì Eclipse) thì file này tự động sinh ra.
+
 src/com.oic.bookreminder/
   + app: chứa các màn hình của ứng dụng (Fragment, Adapter…)
   + config: các file cấu hình (Database, Debug, Log, Network …)
@@ -27,3 +28,5 @@ src/com.oic.bookreminder/
   + common: các thành phần dùng chung giữa các màn hình (custom views, utils,..)
   + vendor: các class tiện ích từ các nguồn khác, không phải do mình viết ra.
 ````
+
+##### Tham khảo thêm: [https://github.com/futurice/android-best-practices](Cấu trúc project Android)
