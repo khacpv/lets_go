@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/addbook_bg">
+    android:orientation="vertical"
+    android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/layoutAddPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EAEAEA">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Book Title"
-        android:id="@+id/bookTitle"
-        android:textColor="@color/yellow_gold"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
-</RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutAddBook"
+        android:background="@drawable/addbook_bg"
+        android:padding="30dp">
+
+        <com.oic.bookreminder.common.views.edittext.EditTextBookAuthor
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book Title"
+            android:id="@+id/bookTitle"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="155dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/yellow_gold"
+            android:textSize="40sp"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:id="@+id/separate"
+            android:layout_below="@id/bookTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/addbook_seperate"
+            android:layout_centerHorizontal="true">
+
+        </LinearLayout>
+        <com.oic.bookreminder.common.views.edittext.EditTextBookTitle
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:background="@android:color/transparent"
+            android:textColor="@color/yellow_gold"
+            android:id="@+id/bookAuthor"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+</FrameLayout>

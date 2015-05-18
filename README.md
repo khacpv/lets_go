@@ -1,14 +1,17 @@
 #Let’s Go project
 
 #### Lets-go-generator
-````
+
 Java project.
 Thư viện GreenDAO để tự động generate ra code database
-Sau khi chạy file MainGeneration.java -> được code trong thư mục: Lets-go-generator-out-ver(1) -> copy đè vào package: src/com.oic.bookreminder.models.tables
-````
+Sau khi chạy file MainGeneration.java 
+   -> được code trong thư mục: Lets-go-generator-out-ver(1) 
+   -> copy đè vào package: src/com.oic.bookreminder.models.tables
+
+
 
 #### Lets-go
-````
+
 Android project.
 
 Quy tắc chung:
@@ -30,6 +33,6 @@ src/com.oic.bookreminder/
   + network: các api, class helper gọi đến backend, facebook api…
   + common: các thành phần dùng chung giữa các màn hình (custom views, utils,..)
   + vendor: các class tiện ích từ các nguồn khác, không phải do mình viết ra.
-````
 
-##### Tham khảo thêm: [https://github.com/futurice/android-best-practices](Cấu trúc project Android)
+
+##### Tham khảo thêm: [https://github.com/futurice/android-best-practices](https://github.com/futurice/android-best-practices)
