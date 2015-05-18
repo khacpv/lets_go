@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
@@ -20,6 +22,8 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
     GestureDetectorCompat flipBookGesture;
     FlipBookCoverGesture gestureListener;
 
+    boolean animating = false;
+
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_addbook,container,false);
@@ -30,11 +34,14 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
         if(layoutAddBook.getVisibility() == View.VISIBLE){
             return false;
         }
+        if(animating){
+            return true;
+        }
         layoutAddBook.setVisibility(View.VISIBLE);
         layoutAddBook.requestLayout();
         layoutAddBook.invalidate();
 
-        float fromDegrees=-90;
+        float fromDegrees=-80;
         float toDegrees=0;
         float centerX=0;
         float centerY=0;
@@ -42,9 +49,15 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
         boolean horizontal=false;
         boolean reverse=false;
         Rotate3dAnimation animation = new Rotate3dAnimation(fromDegrees,toDegrees,centerX,centerY,depthZ,horizontal,reverse);
-        animation.setDuration(3000);
 
-        layoutAddBook.startAnimation(animation);
+        Animation alpha = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
+
+        AnimationSet set = new AnimationSet(getActivity(),null);
+        set.addAnimation(animation);
+        set.addAnimation(alpha);
+
+        set.setDuration(500);
+        layoutAddBook.startAnimation(set);
         return true;
     }
 
@@ -76,12 +89,13 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
 
     @Override
     public void onAnimationStart(Animation animation) {
-
+        animating = true;
     }
 
     @Override
     public void onAnimationEnd(Animation animation) {
         layoutAddBook.setVisibility(View.GONE);
+        animating = false;
     }
 
     @Override
