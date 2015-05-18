@@ -16,6 +16,9 @@ Quy tắc chung:
   + thư mục /implement: các class cài đặt interface trong /api
   + các class có tiền tố Base… : abstract class
   + hằng số static final viết hoa tất cả, cách nhau dấu gạch dưới (_)
+  + nên sử dụng @styles thay vì chèn trực tiếp style cho views trong layout.
+     - style bao gồm các thuộc tính hiển thị (màu sắc, orient, text-style…)
+     - style không bao gồm kích thước (margin, padding, align…)
 
 Các files:
   + LetsGo.iml: nếu sử dụng Intellij (thay vì Eclipse) thì file này tự động sinh ra.
