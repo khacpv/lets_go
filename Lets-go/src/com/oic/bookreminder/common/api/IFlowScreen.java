@@ -12,6 +12,7 @@ public interface IFlowScreen {
     void onSplash();
     void onSplashToReadingBook(Fragment oldFragment);
     void onSplashToAddbook(Fragment oldFragment);
+    void onSplashToLibrary(Fragment oldFragment);
 
     /*============= ADD NEW BOOK ===========================*/
 

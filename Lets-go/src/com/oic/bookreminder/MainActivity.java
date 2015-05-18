@@ -3,8 +3,10 @@ package com.oic.bookreminder;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Window;
 import android.widget.FrameLayout;
 import com.oic.bookreminder.app.addbook.FragmentAddbook;
+import com.oic.bookreminder.app.library.FragmentLibrary;
 import com.oic.bookreminder.app.readingbook.FragmentReadbook;
 import com.oic.bookreminder.app.splash.FragmentSplash;
 import com.oic.bookreminder.common.BaseActivity;
@@ -19,6 +21,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
         mainScreen = (FrameLayout)findViewById(R.id.layoutMainScreen);
@@ -40,7 +43,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         FragmentReadbook fragment = (FragmentReadbook)getFragmentMng().findFragmentByTag(tag);
 
         FragmentTransaction transaction = getFragmentTnx();
-        transaction.setCustomAnimations(R.anim.fragment_in, R.anim.fragment_out);
+        transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
 
         if(null == fragment){
             fragment = new FragmentReadbook();
@@ -59,7 +62,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         FragmentAddbook fragment = (FragmentAddbook)getFragmentMng().findFragmentByTag(tag);
 
         FragmentTransaction transaction = getFragmentTnx();
-        transaction.setCustomAnimations(R.anim.fragment_in, R.anim.fragment_out);
+        transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
 
         if(null == fragment){
             fragment = new FragmentAddbook();
@@ -68,7 +71,24 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
             transaction.show(fragment);
         }
         transaction.remove(oldFragment);
-//        transaction.addToBackStack(tag);
+        transaction.commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onSplashToLibrary(Fragment oldFragment) {
+        String tag = FragmentLibrary.class.getName();
+        FragmentLibrary fragment = (FragmentLibrary)getFragmentMng().findFragmentByTag(tag);
+
+        FragmentTransaction transaction = getFragmentTnx();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        if(null == fragment){
+            fragment = new FragmentLibrary();
+            transaction.add(mainScreenId,fragment,tag);
+        }else{
+            transaction.show(fragment);
+        }
+        transaction.remove(oldFragment);
         transaction.commitAllowingStateLoss();
     }
 }

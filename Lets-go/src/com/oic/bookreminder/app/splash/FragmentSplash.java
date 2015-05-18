@@ -36,6 +36,11 @@ public class FragmentSplash extends AppFragment{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mFlowScreen.onSplashToAddbook(this);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mFlowScreen.onSplashToAddbook(FragmentSplash.this);
+            }
+        },1500);
     }
 }
