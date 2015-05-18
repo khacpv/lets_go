@@ -27,6 +27,10 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
+    public boolean onKeyBack(){
+        return false;
+    }
+
     /**
      * Inflate the target layout of fragment. U don't need to override
      * onCreateView
