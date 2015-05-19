@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         FragmentAddbook fragment = (FragmentAddbook)getFragmentMng().findFragmentByTag(tag);
 
         FragmentTransaction transaction = getFragmentTnx();
-        transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
         if(null == fragment){
             fragment = new FragmentAddbook();

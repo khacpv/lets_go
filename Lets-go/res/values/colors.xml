@@ -2,4 +2,8 @@
 <resources>
     <color name="green_dark">#ff2c9e42</color>
     <color name="yellow_gold">#ffcb8c36</color>
+    <color name="yellow_gold_dark">#88976928</color>
+    <color name="black">#88101010</color>
+    <color name="red">#88FF0000</color>
+    <color name="red_light">#33FF0000</color>
 </resources>

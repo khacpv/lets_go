@@ -91,6 +91,9 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
     }
 
     public void animOpenBook(){
+        if(layoutAddBook.getVisibility() == View.GONE){
+            return;
+        }
         layoutAddBook.setVisibility(View.VISIBLE);
         layoutAddBook.requestLayout();
         layoutAddBook.invalidate();
@@ -109,6 +112,7 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
         AnimationSet set = new AnimationSet(getActivity(),null);
         set.addAnimation(animation);
         set.addAnimation(alpha);
+        set.setFillAfter(false);
 
         set.setDuration(500);
 
@@ -117,9 +121,10 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
     }
 
     public void animCloseBook(){
-        layoutAddBook.setVisibility(View.VISIBLE);
-        layoutAddBook.requestLayout();
-        layoutAddBook.invalidate();
+        if(layoutAddBook.getVisibility() == View.VISIBLE){
+            return;
+        }
+
 
         float fromDegrees=-80;
         float toDegrees=0;
@@ -135,9 +140,11 @@ public class FragmentAddbook extends AppFragment implements View.OnTouchListener
         AnimationSet set = new AnimationSet(getActivity(), null);
         set.addAnimation(animation);
         set.addAnimation(alpha);
+        set.setFillBefore(true);
 
         set.setDuration(500);
 
+        layoutAddBook.setVisibility(View.VISIBLE);
         layoutAddBook.startAnimation(set);
     }
 }

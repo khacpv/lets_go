@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/yellow_gold_dark">
 
     <RelativeLayout
         android:id="@+id/layoutAddPage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/addbook_lastpage">
-
+        android:layout_height="match_parent">
+        <include layout="@layout/view_addbook_lastpage"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -31,6 +31,9 @@
             android:background="@android:color/transparent"
             android:textColor="@color/yellow_gold"
             android:textSize="40sp"
+            android:gravity="center_horizontal"
+            android:textCursorDrawable="@drawable/addbook_cusor"
+            android:textColorHint="@color/yellow_gold_dark"
             android:textAlignment="center"/>
         <LinearLayout
             android:id="@+id/separate"
@@ -50,9 +53,12 @@
             android:singleLine="true"
             android:background="@android:color/transparent"
             android:textColor="@color/yellow_gold"
+            android:textColorHint="@color/yellow_gold_dark"
             android:id="@+id/bookAuthor"
+            android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:textCursorDrawable="@drawable/addbook_cusor"
             android:textSize="20sp"/>
     </RelativeLayout>
 </FrameLayout>

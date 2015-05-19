@@ -26,7 +26,7 @@ public class EditTextBookTitle extends EditText{
 
     protected void init(){
         try {
-            Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/royal.ttf");
+            Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/royal_2.ttf");
             setTypeface(font);
         }catch (Exception e){
             e.printStackTrace();
