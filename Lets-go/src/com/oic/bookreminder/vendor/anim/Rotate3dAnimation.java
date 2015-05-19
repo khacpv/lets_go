@@ -1,4 +1,4 @@
-package com.oic.bookreminder.common.views.anims;
+package com.oic.bookreminder.vendor.anim;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
