@@ -4,6 +4,7 @@
     <facet type="android" name="Android">
       <configuration>
         <option name="LIBS_FOLDER_RELATIVE_PATH" value="" />
+        <option name="APK_PATH" value="/out/production/LetsGo/LetsGo_Signed.apk" />
         <option name="UPDATE_PROPERTY_FILES" value="true" />
       </configuration>
     </facet>
