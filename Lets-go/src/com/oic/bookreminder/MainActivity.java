@@ -5,16 +5,30 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
 import android.widget.FrameLayout;
-import com.oic.bookreminder.app.addbook.FragmentAddbook;
+import com.oic.bookreminder.app.AppFragment;
+import com.oic.bookreminder.app.addbook.AdapterAddBook;
+import com.oic.bookreminder.app.addbook.FragmentAddBookV2;
 import com.oic.bookreminder.app.library.FragmentLibrary;
 import com.oic.bookreminder.app.readingbook.FragmentReadbook;
 import com.oic.bookreminder.app.splash.FragmentSplash;
 import com.oic.bookreminder.common.BaseActivity;
 import com.oic.bookreminder.common.api.IFlowScreen;
+import com.oic.bookreminder.vendor.views.viewpager.ParallaxViewPager;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements IFlowScreen{
     int mainScreenId;
     FrameLayout mainScreen;
+
+    ParallaxViewPager viewPagerAddBook;
+    AdapterAddBook adapterAddBook;
+    ArrayList<AppFragment> fragments = new ArrayList<>();
+
+    AppFragment fragmentAddTitle;
+    AppFragment fragmentAddTime;
+    AppFragment fragmentAddPageCurrent;
+    AppFragment fragmentAddPageFinal;
     /**
      * Called when the activity is first created.
      */
@@ -23,6 +37,8 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        viewPagerAddBook = (ParallaxViewPager)findViewById(R.id.frgAddBook);
 
         mainScreen = (FrameLayout)findViewById(R.id.layoutMainScreen);
         mainScreenId = R.id.layoutMainScreen;
@@ -58,14 +74,14 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
 
     @Override
     public void onSplashToAddbook(Fragment oldFragment) {
-        String tag = FragmentAddbook.class.getName();
-        FragmentAddbook fragment = (FragmentAddbook)getFragmentMng().findFragmentByTag(tag);
+        String tag = FragmentAddBookV2.class.getName();
+        FragmentAddBookV2 fragment = (FragmentAddBookV2)getFragmentMng().findFragmentByTag(tag);
 
         FragmentTransaction transaction = getFragmentTnx();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 
         if(null == fragment){
-            fragment = new FragmentAddbook();
+            fragment = new FragmentAddBookV2();
             transaction.add(mainScreenId,fragment,tag);
         }else{
             transaction.show(fragment);
