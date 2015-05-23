@@ -49,7 +49,6 @@ public class ParallaxViewPagerIndicator extends ViewPager {
         setOnPageChangeListener(listener);
     }
 
-
     public ViewPager.OnPageChangeListener getPageChangeListener() {
         return listener;
     }

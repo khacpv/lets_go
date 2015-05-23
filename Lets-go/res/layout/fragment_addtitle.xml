@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:gravity="center_vertical">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <RelativeLayout
+            android:id="@+id/pageAddTitleBook"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ic_book_cover"
+            android:paddingTop="80dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="20dp">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:textSize="30sp"
+                android:hint="Book Title"
+                android:background="@null"
+                android:paddingRight="20dp"
+                android:layout_centerHorizontal="true">
+                <requestFocus></requestFocus>
+            </EditText>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:hint="Book Author"
+                android:background="@null"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add title"
-        android:id="@+id/title"
-        android:textSize="30sp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+        <ImageView
+            android:id="@+id/pageAddTitlePencil"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_pencil"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_next"/>
+    </LinearLayout>
+
+</RelativeLayout>

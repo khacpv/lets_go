@@ -14,10 +14,19 @@ public abstract class AppFragment extends BaseFragment{
     protected DbInteraction mDbInteraction;
     protected IFlowScreen mFlowScreen;
     protected Handler mHandler;
+    protected AppFragment mFragmentParent;
 
     public AppFragment(){
         mDbInteraction = DbInteraction.getInstance(this.getActivity());
         mHandler = new Handler();
+    }
+
+    public void setmFragmentParent(AppFragment fragment){
+        this.mFragmentParent = fragment;
+    }
+
+    public AppFragment(AppFragment parent){
+        this.mFragmentParent = parent;
     }
 
     @Override

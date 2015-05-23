@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Libs/CircularFloatingMenu/CircularFloatingMenu.iml" filepath="$PROJECT_DIR$/../Libs/CircularFloatingMenu/CircularFloatingMenu.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Lets-go-generator/Lets-go-generator.iml" filepath="$PROJECT_DIR$/../Lets-go-generator/Lets-go-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/LetsGo.iml" filepath="$PROJECT_DIR$/LetsGo.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Libs/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/../Libs/ViewPagerIndicator/ViewPagerIndicator.iml" />
