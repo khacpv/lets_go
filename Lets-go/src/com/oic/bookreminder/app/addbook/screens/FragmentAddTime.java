@@ -7,19 +7,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
+import android.widget.Toast;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.nineoldandroids.animation.Animator;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
+import com.oic.bookreminder.app.addbook.FragmentAddBookV2;
 
 /**
  * Created by khacpham on 5/21/15.
  */
-public class FragmentAddTime extends AppFragment implements ViewPager.OnPageChangeListener{
+public class FragmentAddTime extends AppFragment implements ViewPager.OnPageChangeListener, View.OnClickListener {
     public static final int PAGE_ID = 1;
 
     ImageView pageAddTimeClock;
+
+    ImageView fragmentAddBookButtonEdit;
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +53,10 @@ public class FragmentAddTime extends AppFragment implements ViewPager.OnPageChan
     @Override
     public void onPageSelected(int position) {
         if(position == FragmentAddTime.PAGE_ID){
+            this.fragmentAddBookButtonEdit = ((FragmentAddBookV2)mFragmentParent).getButtonEdit();
+            fragmentAddBookButtonEdit.setOnClickListener(this);
+
+
             pageAddTimeClock.setVisibility(View.INVISIBLE);
             YoYo.with(Techniques.Tada).delay(200).duration(1000)
                 .interpolate(new BounceInterpolator(getActivity(), null))
@@ -80,5 +88,14 @@ public class FragmentAddTime extends AppFragment implements ViewPager.OnPageChan
     @Override
     public void onPageScrollStateChanged(int i) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fragmentAddBookButtonEdit:
+                Toast.makeText(getActivity(),"Add time",Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 }

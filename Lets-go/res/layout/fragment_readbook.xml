@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background_blur">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="40dp"
+            android:gravity="center"
+            android:paddingBottom="20dp">
+            <ImageView
+                android:src="@drawable/ic_reading_lib1"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="-20dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"/>
+            <ImageView
+                android:src="@drawable/ic_reading_lib2"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="-20dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"/>
+            <ImageView
+                android:src="@drawable/ic_reading_lib3"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="-20dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
+                <ImageView
+                    android:src="@drawable/ic_reading_book2"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_pencil"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
 
+            <include layout="@layout/view_clock_digital"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>

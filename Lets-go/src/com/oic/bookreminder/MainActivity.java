@@ -107,4 +107,40 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         transaction.remove(oldFragment);
         transaction.commitAllowingStateLoss();
     }
+
+    @Override
+    public void onAddBookToReading(Fragment oldFragment) {
+        String tag = FragmentReadbook.class.getName();
+        FragmentReadbook fragment = (FragmentReadbook)getFragmentMng().findFragmentByTag(tag);
+
+        FragmentTransaction transaction = getFragmentTnx();
+        transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
+
+        if(null == fragment){
+            fragment = new FragmentReadbook();
+            transaction.add(mainScreenId,fragment,tag);
+        }else{
+            transaction.show(fragment);
+        }
+        transaction.remove(oldFragment);
+        transaction.commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onReadingToAddBook(Fragment oldFragment) {
+        String tag = FragmentAddBookV2.class.getName();
+        FragmentAddBookV2 fragment = (FragmentAddBookV2)getFragmentMng().findFragmentByTag(tag);
+
+        FragmentTransaction transaction = getFragmentTnx();
+        transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+
+        if(null == fragment){
+            fragment = new FragmentAddBookV2();
+            transaction.add(mainScreenId,fragment,tag);
+        }else{
+            transaction.show(fragment);
+        }
+        transaction.remove(oldFragment);
+        transaction.commitAllowingStateLoss();
+    }
 }

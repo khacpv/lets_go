@@ -13,16 +13,19 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
+import com.oic.bookreminder.app.addbook.FragmentAddBookV2;
 
 /**
  * Created by khacpham on 5/21/15.
  */
-public class FragmentAddPageFinal extends AppFragment implements ViewPager.OnPageChangeListener {
+public class FragmentAddPageFinal extends AppFragment implements ViewPager.OnPageChangeListener, View.OnClickListener {
     public static final int PAGE_ID = 2;
 
     ImageView pageFinalClock;
     ScrollView pageFinalScroll;
     EditText bubbleNumpage;
+
+    ImageView fragmentAddBookButtonEdit;
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class FragmentAddPageFinal extends AppFragment implements ViewPager.OnPag
     @Override
     public void onPageSelected(int position) {
         if (position == FragmentAddPageFinal.PAGE_ID) {
+            this.fragmentAddBookButtonEdit = ((FragmentAddBookV2)mFragmentParent).getButtonEdit();
+            fragmentAddBookButtonEdit.setOnClickListener(this);
 
             YoYo.with(Techniques.Shake).delay(200).duration(1000)
                 .interpolate(new BounceInterpolator(getActivity(),null))
@@ -63,5 +68,14 @@ public class FragmentAddPageFinal extends AppFragment implements ViewPager.OnPag
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fragmentAddBookButtonEdit:
+                mFlowScreen.onAddBookToReading(mFragmentParent);
+                break;
+        }
     }
 }

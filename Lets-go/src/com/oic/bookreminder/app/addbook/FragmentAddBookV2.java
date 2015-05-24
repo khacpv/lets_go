@@ -43,6 +43,13 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
 
     ArrayList<ViewPager.OnPageChangeListener> pageChangeListeners = new ArrayList<>();
 
+    public FloatingActionMenu floatMenu;
+    public FloatingActionMenu.Builder actionMenuBuilder;
+    public SubActionButton button1;
+    public SubActionButton button2;
+    public SubActionButton button3;
+    public SubActionButton button4;
+
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_addbook_v2,container,false);
@@ -98,34 +105,42 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
         viewPagerAddBook.setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.app_background_blur));
 
 
-        // Circular Menu
+        actionMenuBuilder = initCicularMenu();
+        setDefaultMenu();
+    }
+
+    public void setDefaultMenu(){
+        this.fragmentAddBookButtonEdit = this.getButtonEdit();
+        floatMenu = actionMenuBuilder.attachTo(fragmentAddBookButtonEdit).build();
+    }
+
+    public FloatingActionMenu.Builder initCicularMenu(){
         Drawable drawable = getResources().getDrawable(R.drawable.ic_launcher);
 
         SubActionButton.Builder itemBuilder = null;
         itemBuilder = new SubActionButton.Builder(getActivity());
         ImageView itemIcon1 = new ImageView(getActivity());
         itemIcon1.setImageDrawable(drawable);
-        SubActionButton button1 = itemBuilder.setContentView(itemIcon1).build();
+        button1 = itemBuilder.setContentView(itemIcon1).build();
         itemBuilder = new SubActionButton.Builder(getActivity());
         ImageView itemIcon2 = new ImageView(getActivity());
         itemIcon2.setImageDrawable(drawable);
-        SubActionButton button2 = itemBuilder.setContentView(itemIcon2).build();
+        button2 = itemBuilder.setContentView(itemIcon2).build();
         itemBuilder = new SubActionButton.Builder(getActivity());
         ImageView itemIcon3 = new ImageView(getActivity());
         itemIcon3.setImageDrawable(drawable);
-        SubActionButton button3 = itemBuilder.setContentView(itemIcon3).build();
+        button3 = itemBuilder.setContentView(itemIcon3).build();
         itemBuilder = new SubActionButton.Builder(getActivity());
         ImageView itemIcon4 = new ImageView(getActivity());
         itemIcon4.setImageDrawable(drawable);
-        SubActionButton button4 = itemBuilder.setContentView(itemIcon4).build();
+        button4 = itemBuilder.setContentView(itemIcon4).build();
 
-        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(getActivity())
+        actionMenuBuilder = new FloatingActionMenu.Builder(getActivity())
             .addSubActionView(button1)
             .addSubActionView(button2)
             .addSubActionView(button3)
-            .addSubActionView(button4)
-            .attachTo(fragmentAddBookButtonEdit)
-            .build();
+            .addSubActionView(button4);
+        return actionMenuBuilder;
     }
 
     @Override
@@ -134,20 +149,26 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
             indicatorAddBook.setAlpha(1 - positionOffset);
         }
         for(ViewPager.OnPageChangeListener listener: pageChangeListeners){
-            listener.onPageScrolled(position,positionOffset,positionOffsetPixels);
+            listener.onPageScrolled(position, positionOffset, positionOffsetPixels);
         }
+    }
+
+    public ImageView getButtonEdit(){
+        return fragmentAddBookButtonEdit;
+    }
+
+    public ViewPager getViewPager(){
+        return viewPagerAddBook;
     }
 
     @Override
     public void onPageSelected(int position) {
         switch (position){
-            case 0:
+            case FragmentAddTitle.PAGE_ID:
                 indicatorAddBook.setVisibility(View.VISIBLE);
                 break;
-            case 1:
-                indicatorAddBook.setVisibility(View.INVISIBLE);
-                break;
-            case 2:
+            case FragmentAddTime.PAGE_ID:
+            case FragmentAddPageFinal.PAGE_ID:
                 indicatorAddBook.setVisibility(View.INVISIBLE);
                 break;
         }
@@ -162,4 +183,5 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
             listener.onPageScrollStateChanged(state);
         }
     }
+
 }
