@@ -1,5 +1,6 @@
 package com.oic.bookreminder.models.api;
 
+import com.oic.bookreminder.models.tables.Book;
 import com.oic.bookreminder.models.tables.Notification;
 import com.oic.bookreminder.models.tables.User;
 
@@ -23,4 +24,12 @@ public interface IDbInteraction {
     boolean insertOrUpdateNotification(Notification notification);
     boolean deleteNotification(long id);
     boolean markNotificationAsRead(long id);
+
+    /*=============== BOOK ===============================*/
+
+    List<Book> getBooks();
+    Book getBookById(long id);
+    boolean insertOrUpdateBook(Book book);
+    boolean insert(Book book);
+    void deleteBook(long id);
 }

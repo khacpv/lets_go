@@ -12,11 +12,11 @@ import java.util.List;
 /**
  * Created by khacpham on 5/17/15.
  */
-public class DbInteraction implements IDbInteraction{
+public class DbInteraction implements IDbInteraction {
     private static DbInteraction INSTANCE = null;
     private DaoSession daoSession;
 
-    private DbInteraction(Context context){
+    private DbInteraction(Context context) {
         String dbPath = context.getDatabasePath(ConfigDatabase.DATABASE_NAME).toString();
         DaoMaster.OpenHelper helper = new DaoMaster.DevOpenHelper(context, dbPath, null);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -25,8 +25,8 @@ public class DbInteraction implements IDbInteraction{
         daoSession = daoMaster.newSession(IdentityScopeType.None);
     }
 
-    public static DbInteraction getInstance(Context context){
-        if(null == INSTANCE){
+    public static DbInteraction getInstance(Context context) {
+        if (null == INSTANCE) {
             INSTANCE = new DbInteraction(context);
         }
         return INSTANCE;
@@ -77,7 +77,7 @@ public class DbInteraction implements IDbInteraction{
 
     @Override
     public boolean deleteUser(long id) {
-        if(id < 0){
+        if (id < 0) {
             id = getUser().getId();
         }
         try {
@@ -113,5 +113,36 @@ public class DbInteraction implements IDbInteraction{
     @Override
     public boolean markNotificationAsRead(long id) {
         return false;
+    }
+
+    @Override
+    public List<Book> getBooks() {
+        BookDao bookDao = daoSession.getBookDao();
+        return bookDao.queryBuilder()
+            .orderDesc(BookDao.Properties.CreatedDate)
+            .list();
+    }
+
+    @Override
+    public Book getBookById(long id) {
+        return daoSession.getBookDao()
+            .queryBuilder()
+            .where(BookDao.Properties.Id.eq(id))
+            .unique();
+    }
+
+    @Override
+    public boolean insertOrUpdateBook(Book book) {
+        return daoSession.getBookDao().insertOrReplace(book) >= 0;
+    }
+
+    @Override
+    public boolean insert(Book book) {
+        return daoSession.getBookDao().insert(book) >= 0;
+    }
+
+    @Override
+    public void deleteBook(long id) {
+        daoSession.getBookDao().delete(getBookById(id));
     }
 }

@@ -7,7 +7,7 @@ package com.oic.bookreminder.models.tables;
 /**
  * Entity mapped to table READ.
  */
-public class read {
+public class Read {
 
     private Long id;
     private long bookId;
@@ -18,14 +18,14 @@ public class read {
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
 
-    public read() {
+    public Read() {
     }
 
-    public read(Long id) {
+    public Read(Long id) {
         this.id = id;
     }
 
-    public read(Long id, long bookId, Integer page, String content, java.util.Date createdDate) {
+    public Read(Long id, long bookId, Integer page, String content, java.util.Date createdDate) {
         this.id = id;
         this.bookId = bookId;
         this.page = page;

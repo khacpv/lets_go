@@ -9,7 +9,7 @@ import java.io.File;
 public class MainGeneration {
     private static Schema schema;
     private static final String PACKAGE_NAME = "com.oic.bookreminder.models.tables";
-    private static final int VERSION_CODE = 1;
+    private static final int VERSION_CODE = 2;
     private static final String DIR_OUTPUT = "../Lets-go-generator-out-ver"+VERSION_CODE+"/src";
 
     public static void main(String args[]) throws Exception {
@@ -66,7 +66,7 @@ public class MainGeneration {
         notification.addIntProperty("isRead");
 
         // Table: Book
-        Entity book = schema.addEntity("book");
+        Entity book = schema.addEntity("Book");
 
         book.addLongProperty("id").primaryKey().autoincrement();
         book.addStringProperty("title");
@@ -77,7 +77,7 @@ public class MainGeneration {
         book.addDateProperty("createdDate");
 
         // Table: BookNotes
-        Entity note = schema.addEntity("note");
+        Entity note = schema.addEntity("Note");
 
         note.addLongProperty("id").primaryKey().autoincrement();
         book.addToMany(note,note.addLongProperty("bookId").notNull().getProperty());
@@ -87,7 +87,7 @@ public class MainGeneration {
         note.addBooleanProperty("isReading");
 
         // Table: BookNotes
-        Entity readBook = schema.addEntity("read");
+        Entity readBook = schema.addEntity("Read");
 
         readBook.addLongProperty("id").primaryKey().autoincrement();
         book.addToMany(readBook, readBook.addLongProperty("bookId").notNull().getProperty());

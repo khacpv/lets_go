@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="header_height">54dp</dimen>
+
+    <!-- Override default Time text size in DateTimePicker Library -->
+    <dimen name="time_label_size">30sp</dimen>
 </resources>

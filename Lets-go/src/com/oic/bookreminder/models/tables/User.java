@@ -36,7 +36,7 @@ public class User {
     private transient UserDao myDao;
 
     private List<Notification> notificationList;
-    private List<book> bookList;
+    private List<Book> bookList;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -215,13 +215,13 @@ public class User {
     }
 
     /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-    public List<book> getBookList() {
+    public List<Book> getBookList() {
         if (bookList == null) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
-            bookDao targetDao = daoSession.getBookDao();
-            List<book> bookListNew = targetDao._queryUser_BookList(id);
+            BookDao targetDao = daoSession.getBookDao();
+            List<Book> bookListNew = targetDao._queryUser_BookList(id);
             synchronized (this) {
                 if(bookList == null) {
                     bookList = bookListNew;

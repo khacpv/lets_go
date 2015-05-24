@@ -7,7 +7,7 @@ package com.oic.bookreminder.models.tables;
 /**
  * Entity mapped to table NOTE.
  */
-public class note {
+public class Note {
 
     private Long id;
     private long bookId;
@@ -19,14 +19,14 @@ public class note {
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
 
-    public note() {
+    public Note() {
     }
 
-    public note(Long id) {
+    public Note(Long id) {
         this.id = id;
     }
 
-    public note(Long id, long bookId, String content, java.util.Date createdDate, Boolean complete, Boolean isReading) {
+    public Note(Long id, long bookId, String content, java.util.Date createdDate, Boolean complete, Boolean isReading) {
         this.id = id;
         this.bookId = bookId;
         this.content = content;

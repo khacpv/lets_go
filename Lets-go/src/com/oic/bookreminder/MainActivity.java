@@ -13,6 +13,7 @@ import com.oic.bookreminder.app.readingbook.FragmentReadbook;
 import com.oic.bookreminder.app.splash.FragmentSplash;
 import com.oic.bookreminder.common.BaseActivity;
 import com.oic.bookreminder.common.api.IFlowScreen;
+import com.oic.bookreminder.config.ConfigApp;
 import com.oic.bookreminder.vendor.views.viewpager.ParallaxViewPager;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         mainScreen = (FrameLayout)findViewById(R.id.layoutMainScreen);
         mainScreenId = R.id.layoutMainScreen;
 
+        ConfigApp.fragmentManager = getSupportFragmentManager();
         onSplash();
     }
 

@@ -1,5 +1,6 @@
 package com.oic.bookreminder.config;
 
+import android.support.v4.app.FragmentManager;
 import com.oic.bookreminder.models.tables.User;
 
 /**
@@ -12,5 +13,7 @@ public class ConfigApp {
 
     public static int SCREEN_WIDTH = 0;
     public static int SCREEN_HEIGHT = 0;
+
+    public static FragmentManager fragmentManager;
 
 }

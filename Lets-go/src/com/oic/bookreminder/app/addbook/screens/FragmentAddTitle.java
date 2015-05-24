@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -20,6 +21,8 @@ public class FragmentAddTitle extends AppFragment implements ViewPager.OnPageCha
 
     ImageView pageAddTitlePencil;
     View pageAddTitleBook;
+    EditText fragmentAddBookTitle;
+    EditText fragmentAddBookAuthor;
 
     ImageView fragmentAddBookButtonEdit;
 
@@ -34,6 +37,8 @@ public class FragmentAddTitle extends AppFragment implements ViewPager.OnPageCha
     protected void findControls(View viewParent) {
         pageAddTitlePencil = (ImageView)viewParent.findViewById(R.id.pageAddTitlePencil);
         pageAddTitleBook = viewParent.findViewById(R.id.pageAddTitleBook);
+        fragmentAddBookTitle = (EditText)viewParent.findViewById(R.id.fragmentAddBookTitle);
+        fragmentAddBookAuthor = (EditText)viewParent.findViewById(R.id.fragmentAddBookAuthor);
     }
 
     @Override
@@ -58,6 +63,12 @@ public class FragmentAddTitle extends AppFragment implements ViewPager.OnPageCha
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        restoreData();
+    }
+
+    @Override
     public void onPageSelected(int position) {
         if(position == FragmentAddTitle.PAGE_ID){
             fragmentParent.setDefaultMenu();
@@ -69,8 +80,27 @@ public class FragmentAddTitle extends AppFragment implements ViewPager.OnPageCha
 
             return;
         }
+
+        saveData();
+
         if(fragmentParent.floatMenu!=null){
             fragmentParent.floatMenu.close(true);
+        }
+    }
+
+    public void restoreData(){
+        fragmentAddBookTitle.setText(fragmentParent.book.getTitle());
+        fragmentAddBookAuthor.setText(fragmentParent.book.getAuthor());
+    }
+
+    public void saveData(){
+        String title = fragmentAddBookTitle.getText().toString().trim();
+        if(title.length()>0){
+            fragmentParent.book.setTitle(title);
+        }
+        String author = fragmentAddBookAuthor.getText().toString().trim();
+        if(author.length()>0){
+            fragmentParent.book.setAuthor(author);
         }
     }
 

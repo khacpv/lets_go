@@ -2,7 +2,6 @@ package com.oic.bookreminder.common.views;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.common.utils.TimeUtils;
+import com.oic.bookreminder.config.ConfigApp;
 import com.zenkun.datetimepicker.time.RadialPickerLayout;
 import com.zenkun.datetimepicker.time.TimePickerDialog;
 
@@ -24,7 +24,6 @@ import java.util.Calendar;
  * Created by khacpham on 5/24/15.
  */
 public class ClockDigitalView extends LinearLayout implements View.OnClickListener, TimePickerDialog.OnTimeSetListener {
-    private FragmentManager fragmentManager;
     private View parentView;
 
     private int hourOfDay = 0;
@@ -49,44 +48,6 @@ public class ClockDigitalView extends LinearLayout implements View.OnClickListen
         super(context, attrs, defStyle);
         inflateLayout();
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.hour:
-            case R.id.minute:
-            case R.id.second:
-                Calendar calendar = Calendar.getInstance();
-                showSelectTimeDialog(fragmentManager,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true,ClockDigitalView.class.getName(),null);
-                break;
-        }
-    }
-
-    public void showSelectTimeDialog(FragmentManager fragmentManager, int hourOfDay, int minute, boolean is24HourMode, String tag, TimePickerDialog.OnTimeSetListener listener) {
-        setFragmentManager(fragmentManager);
-        this.listener = listener;
-        TimePickerDialog time = TimePickerDialog.newInstance(this, hourOfDay, minute, is24HourMode);
-        time.show(fragmentManager, tag);
-    }
-
-    public void setFragmentManager(FragmentManager fragmentManager) {
-        this.fragmentManager = fragmentManager;
-    }
-
-    @Override
-    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-        this.hourOfDay = hourOfDay;
-        this.minutes = minute;
-
-        this.hour.setText(TimeUtils.to2Number(hourOfDay));
-        this.minute.setText(TimeUtils.to2Number(minute));
-        this.second.setText(TimeUtils.to2Number(Calendar.getInstance().get(Calendar.SECOND)));
-        if (null != listener) {
-            listener.onTimeSet(view, hourOfDay, minute);
-        }
-
-    }
-
 
     private void inflateLayout() {
         parentView = LayoutInflater.from(getContext()).inflate(R.layout.view_clock_digital, null);
@@ -135,6 +96,38 @@ public class ClockDigitalView extends LinearLayout implements View.OnClickListen
         hour.setText("00");
         minute.setText("00");
         second.setText("00");
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.hour:
+            case R.id.minute:
+            case R.id.second:
+                Calendar calendar = Calendar.getInstance();
+                showSelectTimeDialog(calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true,ClockDigitalView.class.getName(),null);
+                break;
+        }
+    }
+
+    public void showSelectTimeDialog(int hourOfDay, int minute, boolean is24HourMode, String tag, TimePickerDialog.OnTimeSetListener listener) {
+        this.listener = listener;
+        TimePickerDialog time = TimePickerDialog.newInstance(this, hourOfDay, minute, is24HourMode);
+        time.show(ConfigApp.fragmentManager, tag);
+    }
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+        this.hourOfDay = hourOfDay;
+        this.minutes = minute;
+
+        this.hour.setText(TimeUtils.to2Number(hourOfDay));
+        this.minute.setText(TimeUtils.to2Number(minute));
+        this.second.setText(TimeUtils.to2Number(Calendar.getInstance().get(Calendar.SECOND)));
+        if (null != listener) {
+            listener.onTimeSet(view, hourOfDay, minute);
+        }
+
     }
 
     public void setOnClockDigitalClickListener(OnClockDigitalClickListener listener) {

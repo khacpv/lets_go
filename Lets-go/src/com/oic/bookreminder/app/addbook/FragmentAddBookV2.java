@@ -18,6 +18,8 @@ import com.oic.bookreminder.app.addbook.screens.FragmentAddPageFinal;
 import com.oic.bookreminder.app.addbook.screens.FragmentAddTime;
 import com.oic.bookreminder.app.addbook.screens.FragmentAddTitle;
 import com.oic.bookreminder.common.BaseActivity;
+import com.oic.bookreminder.models.implement.DbInteraction;
+import com.oic.bookreminder.models.tables.Book;
 import com.oic.bookreminder.vendor.views.viewpager.ParallaxViewPagerIndicator;
 import com.oic.bookreminder.vendor.views.viewpager.transform.RotateDownTransformer;
 import com.viewpagerindicator.CirclePageIndicator;
@@ -50,6 +52,8 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
     public SubActionButton button3;
     public SubActionButton button4;
 
+    public Book book;
+
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_addbook_v2,container,false);
@@ -57,7 +61,6 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
 
     @Override
     protected void findControls(View viewParent) {
-
         layoutAddBook = (RelativeLayout)viewParent.findViewById(R.id.layoutAddBook);
         viewPagerAddBook = (ParallaxViewPagerIndicator)viewParent.findViewById(R.id.frgAddBook);
         indicatorAddBook = (CirclePageIndicator)viewParent.findViewById(R.id.indicatorAddBook);
@@ -71,6 +74,12 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
 
     @Override
     protected void initializeDefaultData() {
+        Book book = DbInteraction.getInstance(getActivity()).getBookById(1);
+        if(book == null){
+            book = new Book();
+        }
+        this.book = book;
+
 //        Bitmap bg = MakeBlurImage.createBlurImage(getActivity(),R.drawable.app_background_blur);
 
         fragmentAddTitle = new FragmentAddTitle();
@@ -103,7 +112,6 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
         viewPagerAddBook.addOnPageChangeListener(this);
 
         viewPagerAddBook.setBackground(BitmapFactory.decodeResource(getResources(), R.drawable.app_background_blur));
-
 
         actionMenuBuilder = initCicularMenu();
         setDefaultMenu();

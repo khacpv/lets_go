@@ -14,6 +14,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
 import com.oic.bookreminder.app.addbook.FragmentAddBookV2;
+import com.oic.bookreminder.models.implement.DbInteraction;
 
 /**
  * Created by khacpham on 5/21/15.
@@ -26,6 +27,8 @@ public class FragmentAddPageFinal extends AppFragment implements ViewPager.OnPag
     EditText bubbleNumpage;
 
     ImageView fragmentAddBookButtonEdit;
+
+    FragmentAddBookV2 fragmentParent;
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,9 +74,16 @@ public class FragmentAddPageFinal extends AppFragment implements ViewPager.OnPag
     }
 
     @Override
+    public void setmFragmentParent(AppFragment fragmentParent) {
+        super.setmFragmentParent(fragmentParent);
+        this.fragmentParent = (FragmentAddBookV2)fragmentParent;
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fragmentAddBookButtonEdit:
+                DbInteraction.getInstance(getActivity()).insert(fragmentParent.book);
                 mFlowScreen.onAddBookToReading(mFragmentParent);
                 break;
         }

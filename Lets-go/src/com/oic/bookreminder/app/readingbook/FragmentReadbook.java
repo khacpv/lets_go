@@ -6,8 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
-import com.oic.bookreminder.common.views.BubleNumPageView;
-import com.oic.bookreminder.common.views.ClockDigitalView;
+import com.oic.bookreminder.common.views.ReadBookView;
 import com.oic.bookreminder.common.views.ShelveView;
 
 /**
@@ -15,8 +14,7 @@ import com.oic.bookreminder.common.views.ShelveView;
  */
 public class FragmentReadbook extends AppFragment{
     ShelveView fragmentReadBookShelveBook;
-    BubleNumPageView fragmentReadBookNumPage;
-    ClockDigitalView fragmentReadBookClock;
+    ReadBookView fragmentReadBookView;
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,8 +24,7 @@ public class FragmentReadbook extends AppFragment{
     @Override
     protected void findControls(View viewParent) {
         fragmentReadBookShelveBook = (ShelveView)viewParent.findViewById(R.id.fragmentReadBookShelveBook);
-        fragmentReadBookNumPage = (BubleNumPageView)viewParent.findViewById(R.id.fragmentReadBookNumPage);
-        fragmentReadBookClock = (ClockDigitalView)viewParent.findViewById(R.id.fragmentReadBookClock);
+        fragmentReadBookView = (ReadBookView)viewParent.findViewById(R.id.fragmentReadBookView);
     }
 
     @Override
@@ -37,6 +34,22 @@ public class FragmentReadbook extends AppFragment{
 
     @Override
     protected void initializeDefaultData() {
-        fragmentReadBookClock.setFragmentManager(getFragmentManager());
+        if(null != fragmentReadBookView.fragmentReadBookClock) {
+            fragmentReadBookView.setComplete(false);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public boolean onKeyBack() {
+        if(!fragmentReadBookView.isComplete()){
+            fragmentReadBookView.setComplete(true);
+            return true;
+        }
+        return super.onKeyBack();
     }
 }
