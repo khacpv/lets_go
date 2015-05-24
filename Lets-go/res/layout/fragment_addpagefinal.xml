@@ -35,14 +35,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <include layout="@layout/view_bubble_text"
+                <com.oic.bookreminder.common.views.BubbleTextView
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"/>
             </LinearLayout>
         </ScrollView>
-        <include
-            layout="@layout/view_bubble_numpage"
-            android:layout_width="match_parent"
+        <com.oic.bookreminder.common.views.BubleNumPageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"/>
 

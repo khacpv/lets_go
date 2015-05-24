@@ -102,5 +102,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="CircularFloatingMenu" />
+    <orderEntry type="module" module-name="DateTimepicker" />
   </component>
 </module>

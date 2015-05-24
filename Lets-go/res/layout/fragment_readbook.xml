@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background">
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/app_background_blur">
@@ -18,27 +19,13 @@
             android:paddingTop="40dp"
             android:gravity="center"
             android:paddingBottom="20dp">
-            <ImageView
-                android:src="@drawable/ic_reading_lib1"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="-20dp"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"/>
-            <ImageView
-                android:src="@drawable/ic_reading_lib2"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="-20dp"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"/>
-            <ImageView
-                android:src="@drawable/ic_reading_lib3"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="-20dp"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"/>
+
+            <com.oic.bookreminder.common.views.ShelveView
+                android:id="@+id/fragmentReadBookShelveBook"
+                app:shelve_style="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,14 +43,20 @@
                     android:src="@drawable/ic_pencil"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"/>
+                <com.oic.bookreminder.common.views.BubleNumPageView
+                    android:id="@+id/fragmentReadBookNumPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_centerHorizontal="true"/>
             </RelativeLayout>
 
-            <include layout="@layout/view_clock_digital"
+            <com.oic.bookreminder.common.views.ClockDigitalView
+                android:id="@+id/fragmentReadBookClock"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 />
         </LinearLayout>
-
-    </RelativeLayout>
+    </ScrollView>
 </LinearLayout>

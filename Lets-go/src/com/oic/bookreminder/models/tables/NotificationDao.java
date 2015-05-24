@@ -54,7 +54,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'NOTIFICATION' (" + //
-                "'ID' INTEGER PRIMARY KEY ," + // 0: id
+                "'ID' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'NOTIFICATION_ID' INTEGER," + // 1: notificationId
                 "'TYPE' TEXT," + // 2: type
                 "'CONTENT' TEXT," + // 3: content

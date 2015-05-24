@@ -53,7 +53,7 @@ public class MainGeneration {
         // Table: Notifications
         Entity notification = schema.addEntity("Notification");
 
-        notification.addLongProperty("id").primaryKey();
+        notification.addLongProperty("id").primaryKey().autoincrement();
         notification.addLongProperty("notificationId");
         notification.addStringProperty("type");
         notification.addStringProperty("content");
@@ -65,8 +65,39 @@ public class MainGeneration {
         notification.addLongProperty("sortTime");
         notification.addIntProperty("isRead");
 
+        // Table: Book
+        Entity book = schema.addEntity("book");
+
+        book.addLongProperty("id").primaryKey().autoincrement();
+        book.addStringProperty("title");
+        book.addStringProperty("author");
+        book.addStringProperty("isbn");
+        book.addStringProperty("cost");
+        book.addIntProperty("totalPages");
+        book.addDateProperty("createdDate");
+
+        // Table: BookNotes
+        Entity note = schema.addEntity("note");
+
+        note.addLongProperty("id").primaryKey().autoincrement();
+        book.addToMany(note,note.addLongProperty("bookId").notNull().getProperty());
+        note.addStringProperty("content");
+        note.addDateProperty("createdDate");
+        note.addBooleanProperty("complete");
+        note.addBooleanProperty("isReading");
+
+        // Table: BookNotes
+        Entity readBook = schema.addEntity("read");
+
+        readBook.addLongProperty("id").primaryKey().autoincrement();
+        book.addToMany(readBook, readBook.addLongProperty("bookId").notNull().getProperty());
+        readBook.addIntProperty("page");
+        readBook.addStringProperty("content");
+        readBook.addDateProperty("createdDate");
+
         // reference keys
         user.addToMany(notification, notification.addLongProperty("clientUserId").notNull().getProperty());
+        user.addToMany(book, book.addLongProperty("clientUserId").notNull().getProperty());
 
     }
 }

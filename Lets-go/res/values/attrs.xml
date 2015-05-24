@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ShelveView -->
+    <declare-styleable name="ShelveView">
+        <attr name="shelve_style" format="integer"/>
+    </declare-styleable>
+
     <!-- CircularImageView Custom Styling -->
     <declare-styleable name="CircularImageView2">
         <attr name="border_width" format="dimension"/>
