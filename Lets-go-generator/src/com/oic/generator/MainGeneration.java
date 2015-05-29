@@ -68,7 +68,7 @@ public class MainGeneration {
         // Table: Book
         Entity book = schema.addEntity("Book");
 
-        book.addLongProperty("id").primaryKey().autoincrement();
+        book.addLongProperty("id").primaryKey();
         book.addStringProperty("title");
         book.addStringProperty("author");
         book.addStringProperty("isbn");

@@ -25,6 +25,7 @@ import com.oic.bookreminder.vendor.views.viewpager.transform.RotateDownTransform
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by khacpham on 5/21/15.
@@ -74,8 +75,12 @@ public class FragmentAddBookV2 extends AppFragment implements ViewPager.OnPageCh
 
     @Override
     protected void initializeDefaultData() {
-        Book book = DbInteraction.getInstance(getActivity()).getBookById(1);
-        if(book == null){
+        Book book = null;
+        List<Book> books = DbInteraction.getInstance(getActivity()).getBooks();
+        if(!books.isEmpty()) {
+            book = books.get(books.size() - 1);
+        }
+        else{
             book = new Book();
         }
         this.book = book;

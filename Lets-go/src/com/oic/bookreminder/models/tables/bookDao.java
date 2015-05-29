@@ -53,7 +53,7 @@ public class BookDao extends AbstractDao<Book, Long> {
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'BOOK' (" + //
-                "'ID' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
+                "'ID' INTEGER PRIMARY KEY ," + // 0: id
                 "'TITLE' TEXT," + // 1: title
                 "'AUTHOR' TEXT," + // 2: author
                 "'ISBN' TEXT," + // 3: isbn

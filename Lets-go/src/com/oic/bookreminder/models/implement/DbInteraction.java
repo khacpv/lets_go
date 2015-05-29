@@ -138,7 +138,17 @@ public class DbInteraction implements IDbInteraction {
 
     @Override
     public boolean insert(Book book) {
-        return daoSession.getBookDao().insert(book) >= 0;
+        try {
+            List<Book> list = getBooks();
+            if (list.isEmpty()) {
+                return daoSession.getBookDao().insert(book) >= 0;
+            }
+            Book lastItem = list.get(list.size() - 1);
+            book.setId(lastItem.getId() + 1);
+            return daoSession.getBookDao().insert(book) >= 0;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     @Override
