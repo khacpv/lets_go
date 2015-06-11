@@ -17,11 +17,11 @@ import com.oic.bookreminder.app.AppFragment;
 import com.oic.bookreminder.app.addbook.screens.FragmentAddPageFinal;
 import com.oic.bookreminder.app.addbook.screens.FragmentAddTime;
 import com.oic.bookreminder.app.addbook.screens.FragmentAddTitle;
-import com.oic.bookreminder.common.BaseActivity;
+import com.oic.bookreminder.base.BaseActivity;
 import com.oic.bookreminder.models.implement.DbInteraction;
 import com.oic.bookreminder.models.tables.Book;
-import com.oic.bookreminder.vendor.views.viewpager.ParallaxViewPagerIndicator;
-import com.oic.bookreminder.vendor.views.viewpager.transform.RotateDownTransformer;
+import com.oic.bookreminder.common.views.viewpager.ParallaxViewPagerIndicator;
+import com.oic.bookreminder.common.views.viewpager.transform.RotateDownTransformer;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;

@@ -39,7 +39,11 @@ public class FragmentSplash extends AppFragment{
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mFlowScreen.onSplashToAddbook(FragmentSplash.this);
+                // if first time
+//                mFlowScreen.onSplashToAddbook(FragmentSplash.this);
+
+                // if has book
+                mFlowScreen.onSplashToMainScreen(FragmentSplash.this);
             }
         },1500);
     }

@@ -3,8 +3,8 @@ package com.oic.bookreminder.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import com.oic.bookreminder.common.BaseFragment;
-import com.oic.bookreminder.common.api.IFlowScreen;
+import com.oic.bookreminder.base.BaseFragment;
+import com.oic.bookreminder.base.IFlowScreen;
 import com.oic.bookreminder.models.implement.DbInteraction;
 
 /**

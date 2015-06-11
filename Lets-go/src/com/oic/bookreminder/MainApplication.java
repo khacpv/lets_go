@@ -5,7 +5,7 @@ import android.graphics.Point;
 import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
-import com.oic.bookreminder.common.BaseApplication;
+import com.oic.bookreminder.base.BaseApplication;
 import com.oic.bookreminder.config.ConfigApp;
 
 /**

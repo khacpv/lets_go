@@ -71,7 +71,8 @@ public class MainGeneration {
         book.addLongProperty("id").primaryKey();
         book.addStringProperty("title");
         book.addStringProperty("author");
-        book.addStringProperty("isbn");
+        book.addStringProperty("isbn10");
+        book.addStringProperty("isbn13");
         book.addStringProperty("cost");
         book.addIntProperty("totalPages");
         book.addDateProperty("createdDate");

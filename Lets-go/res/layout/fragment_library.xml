@@ -4,8 +4,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAEAEA">
-    <include
-        layout="@layout/view_header"/>
-
+    android:background="@drawable/app_background_blur">
+    <GridView
+        android:id="@+id/lvLibrary"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#0000"
+        android:dividerHeight="0dp"
+        android:divider="@null"
+        android:numColumns="2"
+        android:horizontalSpacing="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:verticalSpacing="20dp"/>
 </LinearLayout>

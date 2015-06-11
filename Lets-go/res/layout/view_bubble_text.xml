@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="bottom">
-    <com.oic.bookreminder.vendor.views.imageview.CircularImageView2
+    <com.oic.bookreminder.common.views.imageview.CircularImageView2
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/ic_avatar_circle"

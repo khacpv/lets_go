@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.oic.bookreminder"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="bottom">
+    <com.oic.bookreminder.common.views.imageview.CircularImageView2
+        android:id="@+id/avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_avatar_circle"
+        android:src="@drawable/ic_test_avatar"
+        app:border_width="0dp"
+        app:border_color="#E5E5E5"/>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_bubble"
+        android:text="Good Book!"
+        android:paddingLeft="20dp"
+        android:textColor="#fff"
+        android:gravity="left"/>
+</LinearLayout>
