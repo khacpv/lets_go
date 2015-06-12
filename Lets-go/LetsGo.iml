@@ -103,5 +103,6 @@
     </orderEntry>
     <orderEntry type="module" module-name="CircularFloatingMenu" />
     <orderEntry type="module" module-name="DateTimepicker" />
+    <orderEntry type="library" name="butterknife-6.1.0" level="project" />
   </component>
 </module>

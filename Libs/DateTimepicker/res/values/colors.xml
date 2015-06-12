@@ -17,6 +17,10 @@
 <resources>
 
     <color name="white">#ffffff</color>
+    <color name="blue">#20B2AA</color>
+    <color name="blue_dark">#068481</color>
+    <color name="blue_light">#20B2AA</color>
+
     <color name="circle_background">#f2f2f2</color>
     <color name="line_background">#cccccc</color>
     <color name="ampm_text_color">#8c8c8c</color>
@@ -25,7 +29,6 @@
     <color name="numbers_text_color">#8c8c8c</color>
 
     <color name="transparent_black">#7F000000</color>
-    <color name="blue">#33b5e5</color>
     <color name="darker_blue">#0099CC</color>
     <color name="date_picker_text_normal">#FF999999</color>
 

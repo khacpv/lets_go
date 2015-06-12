@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import butterknife.ButterKnife;
 
 /**
  * Created by khacpham on 5/17/15.
@@ -17,6 +18,7 @@ public abstract class BaseFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflateLayout(inflater, container, savedInstanceState);
+        ButterKnife.inject(this, view);
 
         findControls(view);
 
@@ -25,6 +27,12 @@ public abstract class BaseFragment extends Fragment {
         initializeDefaultData();
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
     public boolean onKeyBack(){
@@ -40,15 +48,21 @@ public abstract class BaseFragment extends Fragment {
     /**
      * Find all views by id
      */
-    protected abstract void findControls(View viewParent);
+    protected void findControls(View viewParent){
+
+    }
 
     /**
      * Set events to all wanted controls
      */
-    protected abstract void setEventsToControls(View viewParent);
+    protected void setEventsToControls(View viewParent){
+
+    }
 
     /**
      * Initialize default data
      */
-    protected abstract void initializeDefaultData();
+    protected void initializeDefaultData(){
+
+    }
 }

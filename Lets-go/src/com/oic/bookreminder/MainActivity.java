@@ -115,6 +115,24 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
     }
 
     @Override
+    public void onSplashToProfile(Fragment oldFragment) {
+        String tag = FragmentReadbook.class.getName();
+        FragmentReadbook fragment = (FragmentReadbook)getFragmentMng().findFragmentByTag(tag);
+
+        FragmentTransaction transaction = getFragmentTnx();
+        transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
+
+        if(null == fragment){
+            fragment = new FragmentReadbook();
+            transaction.add(mainScreenId,fragment,tag);
+        }else{
+            transaction.show(fragment);
+        }
+        transaction.remove(oldFragment);
+        transaction.commitAllowingStateLoss();
+    }
+
+    @Override
     public void onAddBookToReading(Fragment oldFragment) {
         String tag = FragmentReadbook.class.getName();
         FragmentReadbook fragment = (FragmentReadbook)getFragmentMng().findFragmentByTag(tag);

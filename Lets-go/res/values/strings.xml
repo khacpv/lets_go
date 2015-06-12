@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Book Reminder</string>
+    <string name="app_name">OIC BOOK</string>
+    <string name="logo.text.1">OIC</string>
+    <string name="logo.text.2">BOOK</string>
 </resources>
