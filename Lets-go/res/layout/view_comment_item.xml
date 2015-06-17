@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.oic.bookreminder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.oic.bookreminder.common.views.imageview.CircularImageView2
+        android:id="@+id/imvCommentAvatar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ex_avatar"
+        android:scaleType="fitCenter"
+        app:civ_shadow="true"
+        app:civ_border="true"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tvCommentTitle"
+        android:layout_toRightOf="@id/imvCommentAvatar"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_text"
+        android:textSize="18sp"
+        android:maxLines="2"
+        android:text="Ninh Nguyen commented The Dip (Seth Godin)"/>
+    <TextView
+        android:id="@+id/tvCommentTime"
+        android:layout_below="@id/tvCommentTitle"
+        android:layout_toRightOf="@id/imvCommentAvatar"
+        android:text="1 min ago"
+        android:textColor="@color/white_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <com.oic.bookreminder.app.mainscreen.comment.CustomCommentBook
+        android:id="@+id/viewCommentBook"
+        android:layout_marginLeft="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCommentTime"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/tvCommentLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Like"
+        android:layout_below="@id/viewCommentBook"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/xml_selector"
+        android:textColor="@color/green_text"/>
+    <TextView
+        android:id="@+id/tvCommentNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 Comment"
+        android:layout_below="@id/viewCommentBook"
+        android:layout_toRightOf="@id/tvCommentLike"
+        android:layout_alignBaseline="@id/tvCommentLike"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/xml_selector"
+        android:textColor="@color/green_text"/>
+</RelativeLayout>

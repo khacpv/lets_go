@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.oic.bookreminder.common.views.imageview.CircularImageView2
+        android:id="@+id/imvAskAvatar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_app_logo"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tvAskTitle"
+        android:layout_toRightOf="@id/imvAskAvatar"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_text"
+        android:textSize="18sp"
+        android:text="Ninh Nguyen Asked about The Dip (Seth Godin)"/>
+    <TextView
+        android:id="@+id/tvAskTime"
+        android:layout_below="@id/tvAskTitle"
+        android:layout_toRightOf="@id/imvAskAvatar"
+        android:text="1 min ago"
+        android:textColor="@color/white_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <com.oic.bookreminder.app.mainscreen.ask.CustomAskBook
+        android:id="@+id/viewAskBook"
+        android:layout_marginLeft="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAskTime"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/tvAskLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Like"
+        android:layout_below="@id/viewAskBook"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/green_text"/>
+    <TextView
+        android:id="@+id/tvAskNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 Ask"
+        android:layout_below="@id/viewAskBook"
+        android:layout_toRightOf="@id/tvAskLike"
+        android:layout_alignBaseline="@id/tvAskLike"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/green_text"/>
+</RelativeLayout>

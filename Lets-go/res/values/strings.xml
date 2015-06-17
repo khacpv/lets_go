@@ -5,6 +5,15 @@
     <string name="logo.text.2">BOOK</string>
 
     <string name="screen.comment.title">Comment</string>
+    <string name="screen.comment.commented"> commented </string>
+
+
     <string name="screen.ask.title">Ask</string>
+    <string name="screen.ask.asked">asked</string>
+
     <string name="screen.exchange.title">Exchange</string>
+    <string name="screen.exchange.exchange">exchanged</string>
+
+
+    <string name="actionbar.search.hint">Search</string>
 </resources>

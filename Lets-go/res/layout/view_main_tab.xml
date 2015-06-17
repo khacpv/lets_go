@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-
-    <TabHost
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/tabhost">
-
-        <LinearLayout
-            android:id="@+id/LinearLayout01"
-            android:orientation="vertical"
-            android:layout_height="fill_parent"
-            android:layout_width="fill_parent">
-
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent">
-            </TabWidget>
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-            </FrameLayout>
-
-        </LinearLayout>
-
-    </TabHost>
-
-
-</merge>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="@dimen/tab_height"
+    android:background="@color/green">
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="@string/screen.comment.title"
+        style="@style/header_item"
+        android:layout_height="@dimen/tab_height"/>
+    <TextView
+        android:id="@+id/tvAsk"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        style="@style/header_item"
+        android:text="@string/screen.ask.title"
+        android:layout_height="@dimen/tab_height"/>
+    <TextView
+        android:id="@+id/tvExchange"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        style="@style/header_item"
+        android:text="@string/screen.exchange.title"
+        android:layout_height="@dimen/tab_height"/>
+</LinearLayout>

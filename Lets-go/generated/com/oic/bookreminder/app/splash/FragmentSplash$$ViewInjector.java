@@ -8,12 +8,12 @@ import butterknife.ButterKnife.Injector;
 public class FragmentSplash$$ViewInjector<T extends com.oic.bookreminder.app.splash.FragmentSplash> implements Injector<T> {
   @Override public void inject(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131492881, "field 'logo'");
-    target.logo = finder.castView(view, 2131492881, "field 'logo'");
-    view = finder.findRequiredView(source, 2131492882, "field 'text1'");
-    target.text1 = finder.castView(view, 2131492882, "field 'text1'");
-    view = finder.findRequiredView(source, 2131492883, "field 'text2'");
-    target.text2 = finder.castView(view, 2131492883, "field 'text2'");
+    view = finder.findRequiredView(source, 2131492887, "field 'logo'");
+    target.logo = finder.castView(view, 2131492887, "field 'logo'");
+    view = finder.findRequiredView(source, 2131492888, "field 'text1'");
+    target.text1 = finder.castView(view, 2131492888, "field 'text1'");
+    view = finder.findRequiredView(source, 2131492889, "field 'text2'");
+    target.text2 = finder.castView(view, 2131492889, "field 'text2'");
   }
 
   @Override public void reset(T target) {

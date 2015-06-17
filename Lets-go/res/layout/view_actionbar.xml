@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_height"
+    android:background="@color/green">
+    <ImageView
+        android:id="@+id/imvMenu"
+        android:src="@drawable/ic_menu"
+        android:layout_width="70dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/xml_selector"
+        android:layout_centerVertical="true"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/tvTitle"
+        android:text="@string/logo.text.2"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/imvMenu"/>
+    <ImageView
+        android:id="@+id/imvSearch"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_search"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="centerInside"
+        android:background="@drawable/xml_selector"
+        android:layout_centerVertical="true"/>
+    <EditText
+        android:id="@+id/edtSearch"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@id/imvMenu"
+        android:layout_marginLeft="-5dp"
+        android:layout_height="40dp"
+        android:textSize="15sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textCursorDrawable="@color/black"
+        android:layout_marginRight="15dp"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
+        android:textColor="@color/green_dark_strong"
+        android:background="@drawable/xml_edittext_bg"
+        android:hint="@string/actionbar.search.hint"
+        android:textColorHint="@color/green"/>
+
+</RelativeLayout>
