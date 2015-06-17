@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/../Libs/CircularFloatingMenu/CircularFloatingMenu.iml" filepath="$PROJECT_DIR$/../Libs/CircularFloatingMenu/CircularFloatingMenu.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Libs/DateTimepicker/DateTimepicker.iml" filepath="$PROJECT_DIR$/../Libs/DateTimepicker/DateTimepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Lets-go-generator/Lets-go-generator.iml" filepath="$PROJECT_DIR$/../Lets-go-generator/Lets-go-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Lets-go-generator-out-ver2/Lets-go-generator-out-ver2.iml" filepath="$PROJECT_DIR$/../Lets-go-generator-out-ver2/Lets-go-generator-out-ver2.iml" />
       <module fileurl="file://$PROJECT_DIR$/LetsGo.iml" filepath="$PROJECT_DIR$/LetsGo.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Libs/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/../Libs/ViewPagerIndicator/ViewPagerIndicator.iml" />
     </modules>

@@ -47,7 +47,7 @@ public class FragmentSplash extends AppFragment{
     }
 
     private void goToNextScreen(){
-        mFlowScreen.onSplashToProfile(this);
+        mFlowScreen.onSplashToMainScreen(this);
     }
 
     private Runnable logoAnimation = new Runnable() {
@@ -58,6 +58,13 @@ public class FragmentSplash extends AppFragment{
             YoYo.with(Techniques.SlideInLeft).duration(500).interpolate(new LinearInterpolator()).playOn(text1);
             YoYo.with(Techniques.SlideInRight).duration(500).interpolate(new LinearInterpolator()).playOn(text2);
 
+            mHandler.postDelayed(changeScreen,1000);
+        }
+    };
+
+    private Runnable changeScreen = new Runnable() {
+        @Override
+        public void run() {
             goToNextScreen();
         }
     };

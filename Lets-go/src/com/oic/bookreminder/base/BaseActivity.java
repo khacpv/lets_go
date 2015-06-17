@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import com.oic.bookreminder.models.implement.DbInteraction;
 
 import java.util.List;
 
@@ -14,13 +13,10 @@ import java.util.List;
  */
 public abstract class BaseActivity extends FragmentActivity{
     private FragmentManager mFragmentMng;
-    protected DbInteraction mDbInteraction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mDbInteraction = DbInteraction.getInstance(this);
     }
 
     public FragmentManager getFragmentMng(){

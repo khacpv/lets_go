@@ -9,20 +9,15 @@ public interface IFlowScreen {
 
     /*============= SPLASH ===========================*/
 
+    /**
+     * invoke when start MainActivity
+     * */
     void onSplash();
-    void onSplashToReadingBook(Fragment oldFragment);
-    void onSplashToAddbook(Fragment oldFragment);
-    void onSplashToLibrary(Fragment oldFragment);
+
+    /**
+     * Default: after splash is mainScreen
+     * */
     void onSplashToMainScreen(Fragment oldFragment);
-    void onSplashToProfile(Fragment oldFragment);
-
-    /*============= ADD NEW BOOK ===========================*/
-    void onAddBookToReading(Fragment oldFragment);
-
-    /*============= READING BOOK ===========================*/
-    void onReadingToAddBook(Fragment oldFragment);
-
-    /*============= LIBRARY ===========================*/
 
     /*============= NOTIFICATION ===========================*/
 

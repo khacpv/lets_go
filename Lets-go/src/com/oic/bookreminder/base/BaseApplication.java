@@ -2,19 +2,20 @@ package com.oic.bookreminder.base;
 
 import android.app.Application;
 import com.oic.bookreminder.config.ConfigApp;
-import com.oic.bookreminder.models.implement.DbInteraction;
+import com.oic.bookreminder.models.implement.DbFactory;
+import com.oic.bookreminder.models.implement.UserInteraction;
 
 /**
  * Created by khacpham on 5/17/15.
  */
 public abstract class BaseApplication extends Application{
-    protected DbInteraction mDbInteraction;
+    protected UserInteraction mUserDb;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        mDbInteraction = DbInteraction.getInstance(this);
-        ConfigApp.USER = mDbInteraction.getUser();
+        mUserDb = (UserInteraction)DbFactory.getDbInteraction(this, DbFactory.DB_TYPE.USER);
+        ConfigApp.USER = mUserDb.getUser();
     }
 }

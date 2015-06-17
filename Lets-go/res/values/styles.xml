@@ -1,23 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="header">
-        <item name="android:background">@color/green_dark</item>
-        <item name="android:layout_height">@dimen/header_height</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:orientation">horizontal</item>
-    </style>
 
-    <style name="app_default">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@drawable/app_background</item>
-        <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="app_default_blur">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@drawable/app_background_blur</item>
-        <item name="android:orientation">vertical</item>
-    </style>
 </resources>

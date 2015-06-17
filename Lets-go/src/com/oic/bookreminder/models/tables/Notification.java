@@ -20,7 +20,6 @@ public class Notification {
     private Long updatedDate;
     private Long sortTime;
     private Integer isRead;
-    private long clientUserId;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -32,7 +31,7 @@ public class Notification {
         this.id = id;
     }
 
-    public Notification(Long id, Long notificationId, String type, String content, String messageData, Long messageId, String thumbnailUrl, Long createdDate, Long updatedDate, Long sortTime, Integer isRead, long clientUserId) {
+    public Notification(Long id, Long notificationId, String type, String content, String messageData, Long messageId, String thumbnailUrl, Long createdDate, Long updatedDate, Long sortTime, Integer isRead) {
         this.id = id;
         this.notificationId = notificationId;
         this.type = type;
@@ -44,7 +43,6 @@ public class Notification {
         this.updatedDate = updatedDate;
         this.sortTime = sortTime;
         this.isRead = isRead;
-        this.clientUserId = clientUserId;
     }
 
     public Long getId() {
@@ -133,14 +131,6 @@ public class Notification {
 
     public void setIsRead(Integer isRead) {
         this.isRead = isRead;
-    }
-
-    public long getClientUserId() {
-        return clientUserId;
-    }
-
-    public void setClientUserId(long clientUserId) {
-        this.clientUserId = clientUserId;
     }
 
     // KEEP METHODS - put your custom methods here
