@@ -26,7 +26,7 @@ public class FragmentComment extends AppFragment{
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_comment,container,false);
+        View view = inflater.inflate(R.layout.comment_fragment,container,false);
         return view;
     }
 

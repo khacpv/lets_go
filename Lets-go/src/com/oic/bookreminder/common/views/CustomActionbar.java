@@ -90,7 +90,7 @@ public class CustomActionbar extends LinearLayout{
     }
 
     private void init(){
-        layout = (RelativeLayout)LayoutInflater.from(getContext()).inflate(R.layout.view_actionbar,null);
+        layout = (RelativeLayout)LayoutInflater.from(getContext()).inflate(R.layout.common_actionbar,null);
         addView(layout);
         ButterKnife.inject(this);
 

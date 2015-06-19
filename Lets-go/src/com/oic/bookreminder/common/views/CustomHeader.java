@@ -46,7 +46,7 @@ public class CustomHeader extends LinearLayout{
     }
 
     private void init(){
-        layout = (LinearLayout)LayoutInflater.from(getContext()).inflate(R.layout.view_main_tab,null);
+        layout = (LinearLayout)LayoutInflater.from(getContext()).inflate(R.layout.main_tab,null);
         addView(layout);
         ButterKnife.inject(this, layout);
         setCurrentTab(currentTab);

@@ -36,7 +36,7 @@ public class CustomExchangeItem extends RelativeLayout{
     }
 
     private void init(){
-        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.view_exchange_item,null);
+        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.exchange_item,null);
         addView(layout);
         ButterKnife.inject(this);
 

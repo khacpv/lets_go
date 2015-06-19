@@ -29,7 +29,7 @@ public class FragmentSplash extends AppFragment{
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_splash,container, false);
+        View view = inflater.inflate(R.layout.splash_fragment,container, false);
         return view;
     }
 

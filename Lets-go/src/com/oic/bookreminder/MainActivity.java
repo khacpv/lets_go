@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
 
         mainScreen = (FrameLayout)findViewById(R.id.layoutMainScreen);
         mainScreenId = R.id.layoutMainScreen;

@@ -29,7 +29,7 @@ public class CustomAskBook extends RelativeLayout{
     }
 
     private void init(){
-        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.view_ask_book,null);
+        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.ask_book,null);
         addView(layout);
         ButterKnife.inject(this);
 

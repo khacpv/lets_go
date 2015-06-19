@@ -29,7 +29,7 @@ public class CustomCommentBook extends RelativeLayout{
     }
 
     private void init(){
-        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.view_comment_book,null);
+        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.comment_book,null);
         addView(layout);
         ButterKnife.inject(this);
 

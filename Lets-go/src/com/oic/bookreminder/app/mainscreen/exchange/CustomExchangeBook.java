@@ -29,7 +29,7 @@ public class CustomExchangeBook extends RelativeLayout{
     }
 
     private void init(){
-        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.view_exchange_book,null);
+        layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.exchange_book,null);
         addView(layout);
         ButterKnife.inject(this);
 

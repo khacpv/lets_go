@@ -26,7 +26,7 @@ public class FragmentAsk extends AppFragment{
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ask,container,false);
+        View view = inflater.inflate(R.layout.ask_fragment,container,false);
         return view;
     }
 

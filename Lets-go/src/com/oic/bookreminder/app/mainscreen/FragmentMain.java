@@ -59,7 +59,7 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
 
     @Override
     protected View inflateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.main_fragment, container, false);
         return view;
     }
 
