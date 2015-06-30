@@ -42,20 +42,22 @@ public class UserBookInteraction extends DbInteraction{
     }
 
     public boolean insert(UserBook UserBook) {
-        try {
-            List<UserBook> list = getUserBooks();
-            if (list.isEmpty()) {
-                return getDaoSession().getUserBookDao().insert(UserBook) >= 0;
-            }
-            UserBook lastItem = list.get(list.size() - 1);
-            UserBook.setId(lastItem.getId() + 1);
-            return getDaoSession().getUserBookDao().insert(UserBook) >= 0;
-        }catch (Exception e){
-            return false;
-        }
+        return getDaoSession().getUserBookDao().insert(UserBook) >= 0;
     }
 
     public void deleteUserBook(long id) {
+        UserBook userBook = getUserBookById(id);
+        if(null == userBook) return;
         getDaoSession().getUserBookDao().delete(getUserBookById(id));
+    }
+
+    public UserBook checkSavedBook(long userId, long bookId) {
+        List<UserBook> books = getUserBooks();
+        for(UserBook item: books){
+            if(item.getBookId() == bookId && item.getUserId() == userId){
+                return item;
+            }
+        }
+        return null;
     }
 }

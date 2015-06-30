@@ -23,7 +23,7 @@ public class DbFactory {
             case COMMENT:
                 return CommentInteraction.getInstance(context);
             case ASK:
-                return AskInteraction.getInstance(context);
+                return SuggestInteraction.getInstance(context);
             case EXCHANGE:
                 return ExchangeInteraction.getInstance(context);
             case USERBOOK:

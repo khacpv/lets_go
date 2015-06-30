@@ -39,4 +39,11 @@ public class DbInteraction implements IDbInteraction {
         }
         return daoSession;
     }
+
+    public DbInteraction getINSTANCE(Context context){
+        if(null == INSTANCE){
+            INSTANCE = new DbInteraction(context);
+        }
+        return INSTANCE;
+    }
 }

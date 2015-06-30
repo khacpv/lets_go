@@ -15,9 +15,12 @@ import java.util.List;
 public class AdapterComment extends ArrayAdapter{
     List<Comment> comments;
 
-    public AdapterComment(Context context, List<Comment> data) {
+    CustomCommentItem.OnCustomCommentItemClick listener;
+
+    public AdapterComment(Context context, List<Comment> data, CustomCommentItem.OnCustomCommentItemClick listener) {
         super(context, 0);
         this.comments = data;
+        this.listener = listener;
     }
 
     public void setComments(List<Comment> data){
@@ -36,6 +39,7 @@ public class AdapterComment extends ArrayAdapter{
             convertView = new CustomCommentItem(getContext());
         }
         view = (CustomCommentItem)convertView;
+        view.setOnCustomCommentItemClickListener(listener);
         Comment comment = (Comment)getItem(position);
         view.setData(comment);
         return view;
@@ -43,7 +47,7 @@ public class AdapterComment extends ArrayAdapter{
 
     @Override
     public int getCount() {
-        return 5;
+        return comments.size();
     }
 
     @Override
@@ -53,7 +57,7 @@ public class AdapterComment extends ArrayAdapter{
 
     @Override
     public Object getItem(int position) {
-        return new Comment();
+        return comments.get(position);
     }
 
 }

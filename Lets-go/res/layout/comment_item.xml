@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.oic.bookreminder"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <com.oic.bookreminder.common.views.imageview.CircularImageView2
         android:id="@+id/imvCommentAvatar"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="@dimen/avatar.size"
+        android:layout_height="@dimen/avatar.size"
         android:src="@drawable/ex_avatar"
         android:scaleType="fitCenter"
-        app:civ_shadow="true"
-        app:civ_border="true"
-        android:layout_margin="10dp"/>
+        android:layout_margin="@dimen/avatar.margin"/>
     <TextView
         android:id="@+id/tvCommentTitle"
         android:layout_toRightOf="@id/imvCommentAvatar"
@@ -31,14 +29,14 @@
         android:textColor="@color/white_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="@dimen/title.marginTop"/>
     <com.oic.bookreminder.app.mainscreen.comment.CustomCommentBook
         android:id="@+id/viewCommentBook"
         android:layout_marginLeft="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvCommentTime"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"/>
     <TextView
         android:id="@+id/tvCommentLike"

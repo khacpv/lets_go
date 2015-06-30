@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:layout_margin="10dp">
+
+    <com.oic.bookreminder.common.views.imageview.CircularImageView2
+        android:layout_width="@dimen/avatar.size"
+        android:layout_height="@dimen/avatar.size"
+        android:id="@+id/person_photo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ex_avatar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/person_name"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/person_photo"
+        android:layout_alignParentTop="true"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/person_age"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/person_photo"
+        android:layout_below="@+id/person_name"
+        android:text="This is a great book for every one."/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/person_time"
+        android:textColor="@color/black_light"
+        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/person_photo"
+        android:layout_below="@+id/person_age"
+        android:text="1 min ago"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/person_likes"
+        android:textColor="@color/green"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/person_photo"
+        android:layout_below="@+id/person_time"
+        android:text="100 like"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/person_comments"
+        android:textColor="@color/green"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/person_likes"
+        android:layout_below="@+id/person_time"
+        android:text="100 like"/>
+</RelativeLayout>

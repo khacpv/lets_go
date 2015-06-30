@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commentDetailLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/layoutComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <com.oic.bookreminder.common.views.imageview.CircularImageView2
+            android:id="@+id/imvCommentAvatar"
+            android:layout_width="@dimen/avatar.size"
+            android:layout_height="@dimen/avatar.size"
+            android:src="@drawable/ex_avatar"
+            android:scaleType="fitCenter"
+            android:padding="5dp"
+            android:layout_margin="@dimen/avatar.margin"/>
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_toRightOf="@id/imvCommentAvatar"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:maxLines="2"
+            android:text="Reader User"/>
+        <ImageButton
+            android:id="@+id/btnPostComment"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/tvName"
+            android:text="@string/screen.comment.post"
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/xml_comment_send"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"/>
+        <EditText
+            android:id="@+id/edtCommentText"
+            android:hint="What do you think about it"
+            android:textColor="@color/green_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@drawable/xml_cursor_edt"
+            android:gravity="top"
+            android:background="@drawable/xml_comment_edt"
+            android:layout_alignBottom="@id/btnPostComment"
+            android:layout_toLeftOf="@+id/btnPostComment"
+            android:layout_alignTop="@+id/btnPostComment" android:layout_alignLeft="@+id/tvName"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listComment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparent"
+        android:layout_below="@id/layoutComment"
+        android:divider="@drawable/xml_seperate"
+        android:dividerHeight="1dp"
+        android:listSelector="@android:color/transparent"/>
+
+    <LinearLayout
+        android:layout_below="@id/layoutComment"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/xml_seperate"/>
+</RelativeLayout>

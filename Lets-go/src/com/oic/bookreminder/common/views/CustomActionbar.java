@@ -109,7 +109,8 @@ public class CustomActionbar extends LinearLayout{
     public void showSearch(boolean isShow){
         if(isShow){
             edtSearch.setVisibility(View.VISIBLE);
-            YoYo.with(Techniques.SlideInRight).duration(200).interpolate(new OvershootInterpolator()).withListener(new Animator.AnimatorListener() {
+            YoYo.with(Techniques.FadeOut).duration(200).interpolate(new OvershootInterpolator()).playOn(imvSearch);
+            YoYo.with(Techniques.FadeIn).duration(200).interpolate(new OvershootInterpolator()).withListener(new Animator.AnimatorListener() {
                 @Override
                 public void onAnimationStart(Animator animator) {
 
@@ -132,7 +133,8 @@ public class CustomActionbar extends LinearLayout{
             }).playOn(edtSearch);
         }else{
             edtSearch.setVisibility(View.VISIBLE);
-            YoYo.with(Techniques.SlideOutRight).duration(200).interpolate(new OvershootInterpolator()).withListener(new Animator.AnimatorListener() {
+            YoYo.with(Techniques.FadeIn).duration(200).interpolate(new OvershootInterpolator()).playOn(imvSearch);
+            YoYo.with(Techniques.FadeOut).duration(200).interpolate(new OvershootInterpolator()).withListener(new Animator.AnimatorListener() {
                 @Override
                 public void onAnimationStart(Animator animator) {
 
@@ -154,6 +156,8 @@ public class CustomActionbar extends LinearLayout{
                 }
             }).playOn(edtSearch);
         }
+        intentTextChanged.putExtra(SearchManager.QUERY,edtSearch.getText().toString());
+        getContext().sendBroadcast(intentTextChanged);
     }
 
     public boolean isSearching(){
@@ -180,8 +184,14 @@ public class CustomActionbar extends LinearLayout{
         this.listener = listener;
     }
 
-    public interface OnActionbarListener{
-        void onSearch(String text);
+    public interface OnActionbarListener extends OnSearchable{
         void onMenuClick(View v);
+    }
+
+    public interface OnSearchable{
+        /**
+         * Fire on user click search button keyboard
+         * */
+        void onSearch(String text);
     }
 }

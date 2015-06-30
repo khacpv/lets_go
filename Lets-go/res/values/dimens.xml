@@ -2,4 +2,10 @@
 <resources>
     <dimen name="actionbar_height">54dp</dimen>
     <dimen name="tab_height">45dp</dimen>
+
+    <dimen name="avatar.size">60dp</dimen>
+    <dimen name="avatar.margin">10dp</dimen>
+
+    <dimen name="title.marginTop">10dp</dimen>
+
 </resources>

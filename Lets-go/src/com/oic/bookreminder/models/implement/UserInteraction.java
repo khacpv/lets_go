@@ -4,8 +4,6 @@ import android.content.Context;
 import com.oic.bookreminder.models.tables.User;
 import com.oic.bookreminder.models.tables.UserDao;
 
-import java.util.List;
-
 /**
  * Created by khacpham on 6/17/15.
  */
@@ -24,17 +22,19 @@ public class UserInteraction extends  DbInteraction{
     }
 
     public User getUser() {
-        try {
-            UserDao userDao = getDaoSession().getUserDao();
-            List<User> rs = userDao.queryBuilder()
-                .where(UserDao.Properties.IsActivated.eq(true))
-                .limit(1)
-                .list();
-            return null == rs || rs.size() == 0 ? null : rs.get(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        UserDao dataDao = getDaoSession().getUserDao();
+        return dataDao.queryBuilder()
+            .where(UserDao.Properties.IsActivated.eq(true))
+            .orderDesc(UserDao.Properties.Id)
+            .unique();
+    }
+
+    public User getUserByServerId(long userId){
+        UserDao dataDao = getDaoSession().getUserDao();
+        return dataDao.queryBuilder()
+            .where(UserDao.Properties.UserId.eq(userId))
+            .orderDesc(UserDao.Properties.Id)
+            .unique();
     }
 
     public User insert(User user) {

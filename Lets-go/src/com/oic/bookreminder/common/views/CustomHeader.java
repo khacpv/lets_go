@@ -72,6 +72,10 @@ public class CustomHeader extends LinearLayout{
         return currentTab;
     }
 
+    public void setCurrentTabFix(TAB tab){
+        this.currentTab = tab;
+    }
+
     public void setCurrentTab(TAB tab){
         this.currentTab = tab;
 
@@ -86,6 +90,7 @@ public class CustomHeader extends LinearLayout{
         View view = tvComment;
         switch (tab){
             case COMMENT:
+            case COMMENT_DETAIL:
                 tvComment.setSelected(true);
                 tvComment.setTextColor(getResources().getColor(R.color.white));
                 view = tvComment;
@@ -107,7 +112,7 @@ public class CustomHeader extends LinearLayout{
     }
 
     public enum TAB{
-        COMMENT, ASK, EXCHANGE
+        COMMENT,COMMENT_DETAIL, ASK, EXCHANGE
     }
 
     public void setOnHeaderListener(OnHeaderListener listener){

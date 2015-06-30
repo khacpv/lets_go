@@ -8,6 +8,7 @@ import android.widget.ListView;
 import butterknife.InjectView;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
+import com.oic.bookreminder.common.views.CustomActionbar;
 import com.oic.bookreminder.models.tables.Exchange;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * Created by khacpham on 6/17/15.
  */
-public class FragmentExchange extends AppFragment{
+public class FragmentExchange extends AppFragment implements CustomActionbar.OnSearchable{
 
     @InjectView(R.id.listExchange)
     ListView listExchange;
@@ -35,5 +36,10 @@ public class FragmentExchange extends AppFragment{
         exchanges = new ArrayList<>();
         adapterExchange = new AdapterExchange(getActivity(), exchanges);
         listExchange.setAdapter(adapterExchange);
+    }
+
+    @Override
+    public void onSearch(String text) {
+
     }
 }

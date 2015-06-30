@@ -30,10 +30,10 @@ public class BookInteraction extends DbInteraction{
             .list();
     }
 
-    public Book getBookById(long id) {
+    public Book getBookByServerId(long bookId) {
         return getDaoSession().getBookDao()
             .queryBuilder()
-            .where(BookDao.Properties.Id.eq(id))
+            .where(BookDao.Properties.BookId.eq(bookId))
             .unique();
     }
 
@@ -42,20 +42,10 @@ public class BookInteraction extends DbInteraction{
     }
 
     public boolean insert(Book book) {
-        try {
-            List<Book> list = getBooks();
-            if (list.isEmpty()) {
-                return getDaoSession().getBookDao().insert(book) >= 0;
-            }
-            Book lastItem = list.get(list.size() - 1);
-            book.setId(lastItem.getId() + 1);
-            return getDaoSession().getBookDao().insert(book) >= 0;
-        }catch (Exception e){
-            return false;
-        }
+        return getDaoSession().getBookDao().insert(book) >= 0;
     }
 
     public void deleteBook(long id) {
-        getDaoSession().getBookDao().delete(getBookById(id));
+        getDaoSession().getBookDao().delete(getBookByServerId(id));
     }
 }

@@ -8,8 +8,8 @@ import butterknife.ButterKnife.Injector;
 public class CustomExchangeItem$$ViewInjector<T extends com.oic.bookreminder.app.mainscreen.exchange.CustomExchangeItem> implements Injector<T> {
   @Override public void inject(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131492929, "field 'tvExchangeTitle'");
-    target.tvExchangeTitle = finder.castView(view, 2131492929, "field 'tvExchangeTitle'");
+    view = finder.findRequiredView(source, 2131492912, "field 'tvExchangeTitle'");
+    target.tvExchangeTitle = finder.castView(view, 2131492912, "field 'tvExchangeTitle'");
   }
 
   @Override public void reset(T target) {

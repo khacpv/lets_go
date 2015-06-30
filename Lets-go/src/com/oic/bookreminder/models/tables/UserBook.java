@@ -10,9 +10,9 @@ package com.oic.bookreminder.models.tables;
 public class UserBook {
 
     private Long id;
-    private String userId;
-    private String bookId;
-    private String quantity;
+    private Long userId;
+    private Long bookId;
+    private Integer quantity;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -24,7 +24,7 @@ public class UserBook {
         this.id = id;
     }
 
-    public UserBook(Long id, String userId, String bookId, String quantity) {
+    public UserBook(Long id, Long userId, Long bookId, Integer quantity) {
         this.id = id;
         this.userId = userId;
         this.bookId = bookId;
@@ -39,27 +39,27 @@ public class UserBook {
         this.id = id;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public String getBookId() {
+    public Long getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(Long bookId) {
         this.bookId = bookId;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

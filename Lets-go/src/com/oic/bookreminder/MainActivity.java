@@ -9,7 +9,6 @@ import com.oic.bookreminder.app.mainscreen.FragmentMain;
 import com.oic.bookreminder.app.splash.FragmentSplash;
 import com.oic.bookreminder.base.BaseActivity;
 import com.oic.bookreminder.base.IFlowScreen;
-import com.oic.bookreminder.config.ConfigApp;
 
 public class MainActivity extends BaseActivity implements IFlowScreen{
     int mainScreenId;
@@ -27,7 +26,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
         mainScreen = (FrameLayout)findViewById(R.id.layoutMainScreen);
         mainScreenId = R.id.layoutMainScreen;
 
-        ConfigApp.fragmentManager = getSupportFragmentManager();
+        GlobalStorage.fragmentManager = getSupportFragmentManager();
         onSplash();
     }
 

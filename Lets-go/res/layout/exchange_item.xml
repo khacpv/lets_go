@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <com.oic.bookreminder.common.views.imageview.CircularImageView2
         android:id="@+id/imvexchangeAvatar"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="@dimen/avatar.size"
+        android:layout_height="@dimen/avatar.size"
         android:src="@drawable/ic_app_logo"
-        android:layout_margin="10dp"/>
+        app:civ_shadow="true"
+        app:civ_border="true"
+        android:layout_margin="@dimen/avatar.margin"/>
     <TextView
         android:id="@+id/tvExchangeTitle"
         android:layout_toRightOf="@id/imvexchangeAvatar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/title.marginTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black_text"

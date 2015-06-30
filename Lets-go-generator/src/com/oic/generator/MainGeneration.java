@@ -35,7 +35,7 @@ public class MainGeneration {
         Entity user = schema.addEntity("User");
 
         user.addLongProperty("id").primaryKey().autoincrement();
-        user.addStringProperty("userId");
+        user.addLongProperty("userId");
         user.addStringProperty("accessToken");
         user.addStringProperty("gcmToken");
         user.addStringProperty("displayName");
@@ -69,7 +69,7 @@ public class MainGeneration {
         Entity book = schema.addEntity("Book");
 
         book.addLongProperty("id").primaryKey().autoincrement();
-        book.addStringProperty("bookId");
+        book.addLongProperty("bookId");
         book.addStringProperty("title");
         book.addStringProperty("author");
         book.addStringProperty("isbn10");
@@ -77,37 +77,42 @@ public class MainGeneration {
         book.addStringProperty("cost");
         book.addIntProperty("totalPages");
         book.addDateProperty("createdDate");
+        book.addIntProperty("likeNumber");
+        book.addIntProperty("commentNumber");
+        book.addStringProperty("thumbnail");
+        book.addStringProperty("description");
 
         // Table: Comment
         Entity comment = schema.addEntity("Comment");
 
         comment.addLongProperty("id").primaryKey();
-        comment.addStringProperty("userId");
+        comment.addLongProperty("userId");
         comment.addStringProperty("userName");
-        comment.addStringProperty("bookId");
+        comment.addLongProperty("bookId");
+        comment.addStringProperty("bookTitle");
         comment.addStringProperty("content");
         comment.addStringProperty("image");
         comment.addStringProperty("link");
         comment.addDateProperty("createdDate");
 
-        // Table: Ask
-        Entity question = schema.addEntity("Ask");
+        // Table: Suggest
+        Entity suggest = schema.addEntity("Suggest");
 
-        question.addLongProperty("id").primaryKey();
-        question.addStringProperty("userId");
-        question.addStringProperty("userName");
-        question.addStringProperty("bookId");
-        question.addStringProperty("content");
-        question.addBooleanProperty("isQuestion");  // question or answer
-        question.addDateProperty("createdDate");
+        suggest.addLongProperty("id").primaryKey();
+        suggest.addLongProperty("bookId");
+        suggest.addStringProperty("bookTitle");
+        suggest.addStringProperty("thumbnail");
+        suggest.addStringProperty("author");
+        suggest.addStringProperty("content");
 
         // Table: Exchange
         Entity exchange = schema.addEntity("Exchange");
 
         exchange.addLongProperty("id").primaryKey();
-        exchange.addStringProperty("userId");
+        exchange.addLongProperty("userId");
         exchange.addStringProperty("userName");
-        exchange.addStringProperty("bookId");
+        exchange.addLongProperty("bookId");
+        exchange.addStringProperty("bookTitle");
         exchange.addStringProperty("content");
         exchange.addDateProperty("createdDate");
 
@@ -115,8 +120,8 @@ public class MainGeneration {
         Entity userBook = schema.addEntity("UserBook");
 
         userBook.addLongProperty("id").primaryKey();
-        userBook.addStringProperty("userId");
-        userBook.addStringProperty("bookId");
-        userBook.addStringProperty("quantity");
+        userBook.addLongProperty("userId");
+        userBook.addLongProperty("bookId");
+        userBook.addIntProperty("quantity");
     }
 }

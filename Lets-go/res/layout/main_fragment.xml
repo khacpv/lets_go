@@ -20,17 +20,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:background="@drawable/xml_seperate"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_alignParentTop="true"/>
+
             <FrameLayout
                 android:id="@+id/content_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             </FrameLayout>
+            <LinearLayout
+                android:background="@drawable/xml_seperate"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentTop="true"/>
         </RelativeLayout>
 
     </LinearLayout>
@@ -42,17 +43,72 @@
         android:layout_height="match_parent"
         android:layout_marginRight="30dp"
         android:layout_gravity="start|bottom">
-        <ListView
+        <RelativeLayout
             android:id="@+id/menu_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E5E5E5"
-            android:choiceMode="singleChoice"
-            android:divider="#EAEAEAEA"
-            android:dividerHeight="0dp"
-            android:listSelector="@android:color/transparent"
-            android:fadeScrollbars="true"
-            android:layout_marginRight="5dp"/>
+            android:background="@color/white"
+            android:layout_marginRight="5dp">
+            <com.oic.bookreminder.app.mainscreen.menu.MenuHeaderView
+                android:id="@+id/menu_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </com.oic.bookreminder.app.mainscreen.menu.MenuHeaderView>
+            <LinearLayout
+                android:id="@+id/header_seperate"
+                android:orientation="horizontal"
+                android:layout_below="@id/menu_header"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/xml_seperate"/>
+            <TextView
+                android:id="@+id/tvAboutMe"
+                android:text="About me"
+                android:layout_below="@id/header_seperate"
+                android:drawableLeft="@drawable/xml_menu_ratereview"
+                style="@style/menu_title"/>
+            <TextView
+                android:id="@+id/tvMyBook"
+                android:text="My book"
+                android:layout_below="@id/tvAboutMe"
+                android:drawableLeft="@drawable/xml_menu_ratereview"
+                style="@style/menu_title"/>
+            <TextView
+                android:id="@+id/tvSavedQuote"
+                android:text="Saved Quote"
+                android:layout_below="@id/tvMyBook"
+                android:drawableLeft="@drawable/xml_menu_ratereview"
+                style="@style/menu_title"/>
+            <TextView
+                android:id="@+id/tvMyGroup"
+                android:text="My group"
+                android:layout_below="@id/tvSavedQuote"
+                android:drawableLeft="@drawable/xml_menu_ratereview"
+                style="@style/menu_title"/>
+            <TextView
+                android:id="@+id/tvChallenge"
+                android:text="Challenge"
+                android:layout_below="@id/tvMyGroup"
+                android:drawableLeft="@drawable/xml_menu_ratereview"
+                style="@style/menu_title"/>
+            <TextView
+                android:id="@+id/tvRateReview"
+                android:text="Rate &amp; Review"
+                android:drawableLeft="@drawable/xml_menu_ratereview"
+                android:layout_alignParentBottom="true"
+                style="@style/menu_title"/>
+            <TextView
+                android:id="@+id/tvSetting"
+                android:text="Setting"
+                android:drawableLeft="@drawable/xml_menu_setting"
+                android:layout_above="@id/tvRateReview"
+                style="@style/menu_title"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_dark"
+                android:layout_above="@id/tvSetting"/>
+        </RelativeLayout>
         <LinearLayout
             android:layout_alignParentRight="true"
             android:background="@drawable/xml_seperate_vertical"

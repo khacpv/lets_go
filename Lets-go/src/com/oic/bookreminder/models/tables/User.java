@@ -10,7 +10,7 @@ package com.oic.bookreminder.models.tables;
 public class User {
 
     private Long id;
-    private String userId;
+    private Long userId;
     private String accessToken;
     private String gcmToken;
     private String displayName;
@@ -35,7 +35,7 @@ public class User {
         this.id = id;
     }
 
-    public User(Long id, String userId, String accessToken, String gcmToken, String displayName, String fbId, String fbAccessToken, Long fbExpiredDate, String fbEmail, String fbUserName, String privateEmail, String avatarUrl, Boolean isActivated, Integer emailNotification, String language) {
+    public User(Long id, Long userId, String accessToken, String gcmToken, String displayName, String fbId, String fbAccessToken, Long fbExpiredDate, String fbEmail, String fbUserName, String privateEmail, String avatarUrl, Boolean isActivated, Integer emailNotification, String language) {
         this.id = id;
         this.userId = userId;
         this.accessToken = accessToken;
@@ -61,11 +61,11 @@ public class User {
         this.id = id;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

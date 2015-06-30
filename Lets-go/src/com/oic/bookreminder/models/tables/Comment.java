@@ -10,9 +10,10 @@ package com.oic.bookreminder.models.tables;
 public class Comment {
 
     private Long id;
-    private String userId;
+    private Long userId;
     private String userName;
-    private String bookId;
+    private Long bookId;
+    private String bookTitle;
     private String content;
     private String image;
     private String link;
@@ -28,11 +29,12 @@ public class Comment {
         this.id = id;
     }
 
-    public Comment(Long id, String userId, String userName, String bookId, String content, String image, String link, java.util.Date createdDate) {
+    public Comment(Long id, Long userId, String userName, Long bookId, String bookTitle, String content, String image, String link, java.util.Date createdDate) {
         this.id = id;
         this.userId = userId;
         this.userName = userName;
         this.bookId = bookId;
+        this.bookTitle = bookTitle;
         this.content = content;
         this.image = image;
         this.link = link;
@@ -47,11 +49,11 @@ public class Comment {
         this.id = id;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -63,12 +65,20 @@ public class Comment {
         this.userName = userName;
     }
 
-    public String getBookId() {
+    public Long getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(Long bookId) {
         this.bookId = bookId;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
     }
 
     public String getContent() {

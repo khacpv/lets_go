@@ -12,15 +12,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.InjectView;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.oic.bookreminder.GlobalStorage;
 import com.oic.bookreminder.R;
 import com.oic.bookreminder.app.AppFragment;
-import com.oic.bookreminder.app.mainscreen.ask.FragmentAsk;
 import com.oic.bookreminder.app.mainscreen.comment.FragmentComment;
+import com.oic.bookreminder.app.mainscreen.commentdetail.FragmentCommentDetail;
 import com.oic.bookreminder.app.mainscreen.exchange.FragmentExchange;
+import com.oic.bookreminder.app.mainscreen.menu.MenuHeaderView;
+import com.oic.bookreminder.app.mainscreen.suggest.FragmentSuggest;
 import com.oic.bookreminder.common.views.CustomActionbar;
 import com.oic.bookreminder.common.views.CustomHeader;
 
@@ -28,6 +32,8 @@ import com.oic.bookreminder.common.views.CustomHeader;
  * Created by khacpham on 6/17/15.
  */
 public class FragmentMain extends AppFragment implements CustomActionbar.OnActionbarListener, CustomHeader.OnHeaderListener {
+    public static FragmentMain FRG_MAIN;
+
     @InjectView(R.id.drawer_layout)
     public DrawerLayout mDrawerLayout;
 
@@ -35,7 +41,7 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
     public RelativeLayout leftDrawer;
 
     @InjectView(R.id.menu_list)
-    public ListView mDrawerList;
+    public RelativeLayout mMenuList;
 
     @InjectView(R.id.actionbar)
     CustomActionbar actionbar;
@@ -43,16 +49,49 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
     @InjectView(R.id.customHeader)
     CustomHeader customHeader;
 
+    @InjectView(R.id.menu_header)
+    MenuHeaderView menuHeader;
+
+    @InjectView(R.id.tvAboutMe)
+    TextView tvAboutMe;
+
+    @InjectView(R.id.tvMyBook)
+    TextView tvMyBook;
+
+    @InjectView(R.id.tvSavedQuote)
+    TextView tvSavedQuote;
+
+    @InjectView(R.id.tvMyGroup)
+    TextView tvMyGroup;
+
+    @InjectView(R.id.tvChallenge)
+    TextView tvChallenge;
+
+    @InjectView(R.id.tvSetting)
+    TextView tvSetting;
+
+    @InjectView(R.id.tvRateReview)
+    TextView tvRateReview;
+
     FragmentComment frgComment;
-    FragmentAsk frgAsk;
+    FragmentCommentDetail frgCommentDetail;
+    FragmentSuggest frgAsk;
     FragmentExchange frgExchange;
 
     BroadcastReceiver searchReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(Intent.ACTION_SEARCH.equalsIgnoreCase(intent.getAction())){
-                String text = intent.getStringExtra(SearchManager.QUERY);
-                Toast.makeText(getActivity(),text,Toast.LENGTH_SHORT).show();
+                if(getCurrentFragment() instanceof CustomActionbar.OnSearchable) {
+                    String text = intent.getStringExtra(SearchManager.QUERY);
+                    CustomHeader.TAB tab = customHeader.getCurrentTab();
+                    ((CustomActionbar.OnSearchable) getCurrentFragment()).onSearch(text);
+                }
+                else if(getCurrentFragment() instanceof FragmentCommentDetail){
+                    String text = intent.getStringExtra(SearchManager.QUERY);
+                    CustomHeader.TAB tab = customHeader.getCurrentTab();
+                    ((FragmentCommentDetail) getCurrentFragment()).onSearch(text);
+                }
             }
         }
     };
@@ -65,11 +104,17 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
 
     @Override
     protected void initializeDefaultData() {
+        FRG_MAIN = this;
         frgComment = new FragmentComment();
-        frgAsk = new FragmentAsk();
+        frgAsk = new FragmentSuggest();
         frgExchange = new FragmentExchange();
+        frgCommentDetail = new FragmentCommentDetail();
 
         setCurrentFragment(CustomHeader.TAB.COMMENT);
+
+        ImageLoader.getInstance().displayImage(GlobalStorage.USER.getAvatarUrl(), menuHeader.avatar);
+        menuHeader.tvUsername.setText(GlobalStorage.USER.getDisplayName());
+        menuHeader.tvLevel.setText("Book worm");
     }
 
     @Override
@@ -79,11 +124,20 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
     }
 
     public void setCurrentFragment(CustomHeader.TAB tab) {
+        actionbar.setTitle(getString(R.string.logo_text_2));
+        customHeader.setCurrentTabFix(tab);
         AppFragment fragment = frgComment;
 
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         switch (tab){
             case COMMENT:
                 fragment = frgComment;
+                break;
+            case COMMENT_DETAIL:
+                actionbar.setTitle(GlobalStorage.BOOK.getTitle());
+                fragment = frgCommentDetail;
+                transaction.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out);
                 break;
             case ASK:
                 fragment = frgAsk;
@@ -93,8 +147,8 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
                 break;
         }
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+
         transaction.replace(R.id.content_frame, fragment);
         transaction.commit();
     }
@@ -113,6 +167,10 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
 
     @Override
     public boolean onKeyBack() {
+        if (customHeader.getCurrentTab() == CustomHeader.TAB.COMMENT_DETAIL){
+            setCurrentFragment(CustomHeader.TAB.COMMENT);
+            return true;
+        }
         if (actionbar.isSearching()) {
             actionbar.showSearch(false);
             return true;
@@ -122,6 +180,20 @@ public class FragmentMain extends AppFragment implements CustomActionbar.OnActio
             return true;
         }
         return false;
+    }
+
+    public AppFragment getCurrentFragment(){
+        switch (customHeader.getCurrentTab()){
+            case COMMENT:
+                return frgComment;
+            case ASK:
+                return frgAsk;
+            case EXCHANGE:
+                return frgExchange;
+            case COMMENT_DETAIL:
+                return frgCommentDetail;
+        }
+        return frgComment;
     }
 
     @Override

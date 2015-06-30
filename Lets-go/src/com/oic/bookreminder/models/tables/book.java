@@ -10,7 +10,7 @@ package com.oic.bookreminder.models.tables;
 public class Book {
 
     private Long id;
-    private String bookId;
+    private Long bookId;
     private String title;
     private String author;
     private String isbn10;
@@ -18,6 +18,10 @@ public class Book {
     private String cost;
     private Integer totalPages;
     private java.util.Date createdDate;
+    private Integer likeNumber;
+    private Integer commentNumber;
+    private String thumbnail;
+    private String description;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -29,7 +33,7 @@ public class Book {
         this.id = id;
     }
 
-    public Book(Long id, String bookId, String title, String author, String isbn10, String isbn13, String cost, Integer totalPages, java.util.Date createdDate) {
+    public Book(Long id, Long bookId, String title, String author, String isbn10, String isbn13, String cost, Integer totalPages, java.util.Date createdDate, Integer likeNumber, Integer commentNumber, String thumbnail, String description) {
         this.id = id;
         this.bookId = bookId;
         this.title = title;
@@ -39,6 +43,10 @@ public class Book {
         this.cost = cost;
         this.totalPages = totalPages;
         this.createdDate = createdDate;
+        this.likeNumber = likeNumber;
+        this.commentNumber = commentNumber;
+        this.thumbnail = thumbnail;
+        this.description = description;
     }
 
     public Long getId() {
@@ -49,11 +57,11 @@ public class Book {
         this.id = id;
     }
 
-    public String getBookId() {
+    public Long getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(Long bookId) {
         this.bookId = bookId;
     }
 
@@ -111,6 +119,38 @@ public class Book {
 
     public void setCreatedDate(java.util.Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Integer getLikeNumber() {
+        return likeNumber;
+    }
+
+    public void setLikeNumber(Integer likeNumber) {
+        this.likeNumber = likeNumber;
+    }
+
+    public Integer getCommentNumber() {
+        return commentNumber;
+    }
+
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     // KEEP METHODS - put your custom methods here

@@ -95,5 +95,16 @@
     <orderEntry type="module" module-name="CircularFloatingMenu" />
     <orderEntry type="module" module-name="DateTimepicker" />
     <orderEntry type="library" name="butterknife-6.1.0" level="project" />
+    <orderEntry type="library" name="android-support-v7-cardview" level="project" />
+    <orderEntry type="library" name="butterknife-6.1.0" level="project" />
+    <orderEntry type="library" name="CircularFloatingActionMenu-1.0.2-sources" level="project" />
+    <orderEntry type="module" module-name="cardview" />
+    <orderEntry type="library" name="android-support-v7-appcompat" level="project" />
+    <orderEntry type="library" name="universal-image-loader-194" level="project" />
+    <orderEntry type="library" name="androidasync-2.1.6" level="project" />
+    <orderEntry type="library" name="ion-2.1.6" level="project" />
+    <orderEntry type="library" name="retrofit-1.9.0" level="project" />
+    <orderEntry type="library" name="rxjava-1.0.12" level="project" />
+    <orderEntry type="library" name="rxandroid-0.24.0" level="project" />
   </component>
 </module>

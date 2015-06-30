@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res/com.oic.bookreminder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ListView
@@ -12,4 +12,13 @@
         android:dividerHeight="1dp"
         android:divider="@drawable/xml_seperate"
         android:listSelector="@android:color/transparent"/>
-</LinearLayout>
+    <ListView
+        android:id="@+id/commentSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:dividerHeight="1dp"
+        android:visibility="gone"
+        android:divider="@drawable/xml_seperate"
+        android:listSelector="@android:color/transparent"/>
+</FrameLayout>

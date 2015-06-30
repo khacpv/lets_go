@@ -5,15 +5,19 @@
     <string name="logo.text.2">BOOK</string>
 
     <string name="screen.comment.title">Comment</string>
-    <string name="screen.comment.commented"> commented </string>
+    <string name="screen.comment.commented">commented</string>
+    <string name="screen.comment.number"> %s Comment</string>
+    <string name="screen.comment.like"> %s Like</string>
+    <string name="screen.comment.post"> Post</string>
 
 
-    <string name="screen.ask.title">Ask</string>
-    <string name="screen.ask.asked">asked</string>
+    <string name="screen.suggest.title">Suggest</string>
+    <string name="screen.suggest.quote">suggest about</string>
 
     <string name="screen.exchange.title">Exchange</string>
-    <string name="screen.exchange.exchange">exchanged</string>
+    <string name="screen.exchange.exchange">requested exchange to</string>
 
 
     <string name="actionbar.search.hint">Search</string>
+    <string name="menu.rateandreview"><![CDATA[Rate & Review]]></string>
 </resources>

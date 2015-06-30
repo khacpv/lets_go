@@ -30,6 +30,14 @@ public class CommentInteraction extends DbInteraction {
             .list();
     }
 
+    public List<Comment> getCommentByBookId(long bookId) {
+        CommentDao dataDao = getDaoSession().getCommentDao();
+        return dataDao.queryBuilder()
+            .where(CommentDao.Properties.BookId.eq(bookId))
+            .orderDesc(CommentDao.Properties.CreatedDate)
+            .list();
+    }
+
     public Comment getCommentById(long id) {
         return getDaoSession().getCommentDao()
             .queryBuilder()
@@ -41,18 +49,8 @@ public class CommentInteraction extends DbInteraction {
         return getDaoSession().getCommentDao().insertOrReplace(Comment) >= 0;
     }
 
-    public boolean insert(Comment Comment) {
-        try {
-            List<Comment> list = getComments();
-            if (list.isEmpty()) {
-                return getDaoSession().getCommentDao().insert(Comment) >= 0;
-            }
-            Comment lastItem = list.get(list.size() - 1);
-            Comment.setId(lastItem.getId() + 1);
-            return getDaoSession().getCommentDao().insert(Comment) >= 0;
-        }catch (Exception e){
-            return false;
-        }
+    public boolean insert(Comment comment) {
+        return getDaoSession().getCommentDao().insert(comment) >= 0;
     }
 
     public void deleteComment(long id) {
