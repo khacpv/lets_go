@@ -15,8 +15,8 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
     FrameLayout mainScreen;
 
     /**
-     * Called when the activity is first created.
-     * hot fix for update book
+     * Called when the activity is first created
+     * hot fix for update book and merge for new feature
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
