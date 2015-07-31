@@ -17,6 +17,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
     /**
      * Called when the activity is first created
      * hot fix for update book and merge for new feature
+     * start a make chat room
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
