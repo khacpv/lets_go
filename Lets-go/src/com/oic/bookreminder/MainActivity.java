@@ -16,6 +16,7 @@ public class MainActivity extends BaseActivity implements IFlowScreen{
 
     /**
      * Called when the activity is first created.
+     * make new features
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
