@@ -10,7 +10,7 @@ Sau khi chạy file MainGeneration.java
 
 
 
-#### Lets-go
+#### Lets-go project
 
 Android project.
 
